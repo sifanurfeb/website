@@ -1,0 +1,31 @@
+---
+import { sanity } from '../../lib/sanity';
+
+// ambil semua slug
+export async function getStaticPaths() {
+  const articles = await sanity.fetch(`
+    *[_type == "article"]{
+      "slug": slug.current
+    }
+  `);
+
+  return articles.map((a) => ({
+    params: { slug: a.slug },
+  }));
+}
+
+// ambil slug dari URL
+const { slug } = Astro.params;
+
+// ambil data berdasarkan slug
+const article = await sanity.fetch(
+  `*[_type == "article" && slug.current == $slug][0]{
+    title,
+    content
+  }`,
+  { slug }
+);
+---
+
+<h1 class="text-3xl font-bold">{article.title}</h1>
+<p class="mt-4">{article.content}</p>

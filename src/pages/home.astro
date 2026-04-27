@@ -1,0 +1,226 @@
+---
+import { client, urlFor } from '../lib/sanity';
+
+const hero = await client.fetch(`
+  *[_type == "media"][0]{
+    image,
+    alt
+  }
+`);
+---
+<main>
+<!-- hero section -->
+<section class="relative min-h-[921px] flex items-center overflow-hidden -mt-25">
+    <div class="absolute inset-0 z-0">
+<img 
+  alt={hero?.alt || "Hero Image"} 
+  class="w-full h-full object-cover opacity-80"
+  src={
+    hero?.image
+      ? urlFor(hero.image).width(1920).format('webp').url()
+      : '/images/bg-fire.jpg'
+  }
+/>
+            <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/5 "></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div class="lg:col-span-8 flex flex-col justify-center">
+            <span class="text-primary font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Precision Engineering Indonesia</span>
+                <h1 class="text-[clamp(2.5rem,8vw,4.5rem)] font-extrabold leading-[0.95] tracking-tighter text-on-surface mb-8">
+                Membangun Masa Depan<br/>
+                    <span class="text-primary">Industri Presisi.</span>
+                </h1>
+                    <p class="text-secondary text-lg max-w-xl mb-10 leading-relaxed">
+                            Etos Jaya Utama menghadirkan keunggulan teknis melalui solusi manufaktur canggih, manajemen proyek industri, dan standar kualitas internasional.
+                    </p>
+        <div class="flex flex-wrap gap-4">
+    <button class="bg-primary text-on-primary px-8 py-4 rounded-md font-bold transition-all hover:bg-primary-container shadow-[0px_12px_32px_rgba(152,0,27,0.2)]">Eksplorasi Kapabilitas
+    </button>
+    <button class="bg-surface-container-high text-on-surface px-8 py-4 rounded-md font-bold transition-all hover:bg-surface-container-highest">
+    Profil Perusahaan
+    </button>
+    </div>
+        </div>
+            <div class="lg:col-span-4 hidden lg:flex items-end pb-12">
+                <div class="p-8 bg-surface-container-lowest shadow-[0px_12px_32px_rgba(25,28,29,0.06)] rounded-xl border-l-4 border-primary">
+                        <h3 class="text-4xl font-black text-primary mb-1">2+</h3>
+                            <p class="text-sm font-bold uppercase tracking-widest text-on-surface-variant">Tahun Pengalaman</p>
+                                <div class="mt-4 pt-4 border-t border-outline-variant/15 text-xs text-secondary leading-relaxed">
+                                    Mitra terpercaya bagi sektor pertambangan, energi, dan manufaktur berat di seluruh Indonesia.
+                                </div>
+                </div>
+            </div>
+    </div>
+</section>
+
+<!-- service section -->
+ <section class="py-32 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+<div class="max-w-2xl">
+<span class="label-md uppercase tracking-widest text-on-surface-variant font-bold mb-4 block">Layanan Kami</span>
+<h2 class="text-4xl md:text-5xl font-extrabold tracking-tighter leading-tight">Solusi Terintegrasi Untuk Kompleksitas Industri</h2>
+</div>
+<div class="text-secondary text-sm font-medium border-l-2 border-primary pl-6 py-2">
+                        Kami memastikan setiap komponen diproduksi <br/> dengan toleransi mikron demi performa optimal.
+                    </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-1">
+<!-- Service Card 1 -->
+<div class="group relative bg-surface-container-lowest p-10 hover:bg-primary transition-all duration-500 overflow-hidden">
+<span class="material-symbols-outlined text-4xl text-primary group-hover:text-on-primary mb-8 block transition-colors">precision_manufacturing</span>
+<h3 class="text-xl font-bold mb-4 group-hover:text-on-primary transition-colors">Precision Machining</h3>
+<p class="text-secondary group-hover:text-on-primary/80 transition-colors leading-relaxed mb-8">
+                            Layanan CNC milling dan turning dengan akurasi tinggi untuk komponen mesin industri kritis.
+                        </p>
+<div class="w-full aspect-video bg-surface-container rounded-sm overflow-hidden opacity-10 group-hover:opacity-30 transition-opacity">
+<img alt="Machining" class="w-full h-full object-cover" data-alt="macro close-up of a high-precision CNC machine tool cutting through stainless steel with coolants and metal shavings" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDF6Dj-Ct64Gq9V_UFFHNEGyMR3G1KocEpm0kSGo_ivE6qlDHHYSW2IAO120ZRAJ_OpKk7f2fU_0UUErTcs1Pfciln5kiAi_5oNkBKe3_L0bZBbwWi57RO24-A6245idcRAOL8Ulj1axL5AHyQYHKnUhOvo_voU6aNcu0_DLqrc6IzcQNha77gqrYvwqjn5tvVFNmf53JyfcGQVyXnIdhwjPVU3oZxxaogSth9uoen_9RkE9h-__MhC39YKSoDjbEi2_lxiRg3dg8k"/>
+</div>
+</div>
+<!-- Service Card 2 -->
+<div class="group relative bg-surface-container-lowest p-10 hover:bg-primary transition-all duration-500 overflow-hidden">
+<span class="material-symbols-outlined text-4xl text-primary group-hover:text-on-primary mb-8 block transition-colors">engineering</span>
+<h3 class="text-xl font-bold mb-4 group-hover:text-on-primary transition-colors">Fabrication &amp; Assembly</h3>
+<p class="text-secondary group-hover:text-on-primary/80 transition-colors leading-relaxed mb-8">
+                            Fabrikasi struktur baja berat dan perakitan modul industri sesuai spesifikasi teknis ASME &amp; ISO.
+                        </p>
+<div class="w-full aspect-video bg-surface-container rounded-sm overflow-hidden opacity-10 group-hover:opacity-30 transition-opacity">
+<img alt="Fabrication" class="w-full h-full object-cover" data-alt="industrial welder working on a large steel frame with bright blue sparks and professional safety gear" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2PUI0Z8F2_VDvdGm3KzJnKlub7HyrzJ2iAeMtsxhusx45bQPf8Z5nKv3zLt2vrFUxF5VXFvQKlk7IKCacERwaP_23Tj2wlMH_JZVECF6ac9qc8h7DCuEXeEpFHB2i2USmpbXE38oNNBwIlxPjzMtbBoTnzzAp7997xrQo4IiY72ixghYwxLWlh02dcnhRbVkJuUk3GA7zJ80NeyXbQvE0-1z9LcK3B-qNhhW6pZm8uJ-z65djijInp9ou6_ggv8FuV-nPz_IYwPg"/>
+</div>
+</div>
+<!-- Service Card 3 -->
+<div class="group relative bg-surface-container-lowest p-10 hover:bg-primary transition-all duration-500 overflow-hidden">
+<span class="material-symbols-outlined text-4xl text-primary group-hover:text-on-primary mb-8 block transition-colors">inventory_2</span>
+<h3 class="text-xl font-bold mb-4 group-hover:text-on-primary transition-colors">Supply Chain Management</h3>
+<p class="text-secondary group-hover:text-on-primary/80 transition-colors leading-relaxed mb-8">
+                            Pengadaan suku cadang industri global dan logistik terintegrasi untuk mendukung operasional Anda.
+                        </p>
+<div class="w-full aspect-video bg-surface-container rounded-sm overflow-hidden opacity-10 group-hover:opacity-30 transition-opacity">
+<img alt="Supply Chain" class="w-full h-full object-cover" data-alt="organized modern warehouse with high shelving and automated logistics systems in clean industrial lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUENQtf3-gLQJf9p9hTMiJMf-DCYbxSJ0ExJQc2mDb9o2pgyzf2xHHiUyACjJ_5vLhGewqzI28csATv03c4vR0dk1-VLClD9LmcVoGDXuh1IhwSMBtNptQSL554m7nOC6nYhjA1LNf_1LzieY5luG89yNYgC1VX3MLyeSgyPl9KBQh2VGLjK_DcAJ6jgx1XcpUpUFSEXyraPnWiU9yveWujUZy2A6yme1DihrvV-mwT6c_LLXKHTC4o6VfiZMreYkXNFG2yQFAWqg"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- visi dan misi -->
+ <section class="py-32 bg-surface">
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+<div class="relative">
+<div class="aspect-[4/5] bg-surface-container overflow-hidden rounded-lg shadow-xl">
+<img alt="Professionalism" class="w-full h-full object-cover grayscale" data-alt="a professional engineer in a white hard hat reviewing technical blueprints on a digital tablet in a clean factory environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaPRh5p5rsrFifd8icaCvlcEt58qcDGqYCJYN1SFL_ASn30tosWzhskGnfvDixGlAgXeL1XDs2UWG8KOibLm8sLydsBspANFHcV5amxOGYKMaZjakwMgIeWpPgWxF1TBYY5VjpUXWAIC8wS5BSTu-NT2HjCyQITQ63P24qt5Oh3OHentuFdiagL-xV1SNWVM1DkHiohPh3NF7Alqp1kFJblSQFWVYxTBbNPVI3YIeR_hW0LSg1hdFo20ymgzYi_6R3vVltP3eDH60"/>
+</div>
+<div class="absolute -bottom-10 -right-10 w-2/3 aspect-square bg-primary p-1 flex items-center justify-center">
+<div class="w-full h-full border border-on-primary/20 flex flex-col items-center justify-center text-on-primary p-8">
+<span class="text-6xl font-black mb-2 italic">Quality</span>
+<span class="text-xs tracking-[0.4em] uppercase font-bold">Without Compromise</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-12">
+<div>
+<span class="text-primary font-bold uppercase tracking-widest text-xs mb-4 block">Nilai Inti Kami</span>
+<h2 class="text-4xl font-extrabold tracking-tighter mb-6 italic">Visi Kami</h2>
+<p class="text-on-surface-variant text-xl leading-relaxed">
+                            Menjadi pemimpin regional dalam penyediaan solusi engineering yang inovatif, presisi, dan berkelanjutan bagi industri global.
+                        </p>
+</div>
+<div class="space-y-8">
+<h2 class="text-2xl font-extrabold tracking-tighter mb-4 border-b border-primary w-fit pr-8 pb-1">Misi Kami</h2>
+<div class="grid grid-cols-1 gap-6">
+<div class="flex gap-6 items-start">
+<span class="text-primary font-black text-2xl">01</span>
+<div>
+<h4 class="font-bold text-lg mb-1">Inovasi Berkelanjutan</h4>
+<p class="text-secondary text-sm">Terus mengadopsi teknologi manufaktur terbaru untuk efisiensi maksimal.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<span class="text-primary font-black text-2xl">02</span>
+<div>
+<h4 class="font-bold text-lg mb-1">Kualitas Standar Dunia</h4>
+<p class="text-secondary text-sm">Menjamin setiap output memenuhi standar ISO dan kepuasan klien.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<span class="text-primary font-black text-2xl">03</span>
+<div>
+<h4 class="font-bold text-lg mb-1">Keamanan &amp; HSE</h4>
+<p class="text-secondary text-sm">Memprioritaskan keselamatan kerja dan kelestarian lingkungan dalam setiap proyek.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- project preview -->
+ <section class="py-32 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-20">
+<span class="text-primary font-bold uppercase tracking-widest text-xs mb-4 block">Portofolio Proyek</span>
+<h2 class="text-5xl font-extrabold tracking-tighter">Rekam Jejak Presisi</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-auto md:h-[800px]">
+<div class="md:col-span-2 md:row-span-2 relative group overflow-hidden bg-surface-container rounded-sm">
+<img alt="Mining Project" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="large scale heavy equipment assembly in an open-pit mining site with golden hour lighting and dust particles" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVmoKau9lqccAaoAXUVPImkzd2ULkgR66LV44Sn4MfPXYbxqLQUCdN6DYJrZOxizTeHsepjGN_ADI8N-rNRXWe-lzWSDj9CpkwXEkUWW8sIMJJ4EUYVBqQ5GLvSCmUmBvBcyiqrTvuNzfhdrPq_uBR89eI_nyIsRM61J7i5Xi01uWnT-RqhTI4JjqMZ8N-CBQJAdn6fMuVqTu3VliIFCjrus3Sitt4vVrz8qRm7Ah8GdttvZ6XNN49dsTVTyELITcAYhvBvq5An9Y"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-10 flex flex-col justify-end">
+<span class="text-primary-container font-bold text-xs uppercase tracking-widest mb-2">Mining &amp; Minerals</span>
+<h3 class="text-white text-2xl font-bold">Refurbishment Heavy Equipment - PT. Mining Gold</h3>
+</div>
+</div>
+<div class="md:col-span-2 md:row-span-1 relative group overflow-hidden bg-surface-container rounded-sm">
+<img alt="Energy Project" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="night shot of a brightly lit petrochemical plant with steam rising and complex piping systems" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_dLXkVogEEj_Asb6-WWy-gM9mdVyqiZCfZQDoDynH-_ugI1oJvjQ8gbRxR4cqomAzB7c8MVWCBIc8eZ5Z42kutWPUUbRvjEnz0P8tlkH2l6lE2Q1cMAgiOVpdGlW5Fs3e3KwV7OA0wh_2K-t4tbyoY--tQijafIQImxyOaX3K6dhmVRsImxr4Z9a7cVedoEbcmqgsrzeDdBHUOfkPzPqqMF-mSaIbyEp0Nokk71dZQXiqYUwK9Ve-V4XLwU66RPwEVJhN0Cn54-4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-10 flex flex-col justify-end">
+<span class="text-primary-container font-bold text-xs uppercase tracking-widest mb-2">Energy &amp; Power</span>
+<h3 class="text-white text-xl font-bold">Pipeline Integration - Refinery Unit IV</h3>
+</div>
+</div>
+<div class="md:col-span-1 md:row-span-1 relative group overflow-hidden bg-surface-container rounded-sm">
+<img alt="Tech Project" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="robotic arm in a high-tech manufacturing facility performing precise movements on a circuit board" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByEW3rmDLgdusCag-ctHA1U2vy8oiC6-H_NCQgCpiAECm8rg3ju2izG_XFA1m_pRnZM0Y8wOD6OrfzN5S3m-P5SDDmnkkAefXIFfny9raikYxqU5MIiKdd5Zhfju1JrSb-rPmRtSxum_peAQOfC6m3MbnYzbnRhG1vUQKln9dpqqhTegrprZ32u87Ud1HDcNMKTlVUK4Bf_eJxzXr7e_WN_KbTYt-j4dxvnX5IAYa0f8dWQ1JMWxt12pK0hg1Sg65HwxTsHhx9Y8g"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+<span class="text-primary-container font-bold text-[10px] uppercase tracking-widest mb-1">Automation</span>
+<h3 class="text-white text-lg font-bold leading-tight">Smart Factory Setup</h3>
+</div>
+</div>
+<div class="md:col-span-1 md:row-span-1 relative group overflow-hidden bg-surface-container rounded-sm">
+<img alt="Logistics Project" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="aerial view of a large industrial port with shipping containers and cranes at dusk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8qIIchdNjLJLiKocB3I7iDri8FCvuwsL-vuu2f3zE6-iMzGQZNgwtnZwUMTt96Alj0-4IQQfFr_4DEJNoun12eyg95uFLCOIgR3YQj-UQFbkbBew-WTjoga8ynRDUkA-AR3oayCMXljYH0VbFTSYXn4npq1ptReqGrg3EbzRnA49WXV_ue0ETbtmK7g9-x4U4nhXY4AT1sdf7gRz7_zm4mMvwHPjzEPSg_DORKib2GC3BQC2__pS926IDQPsUdvruFBnISvjf5PU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+<span class="text-primary-container font-bold text-[10px] uppercase tracking-widest mb-1">Logistics</span>
+<h3 class="text-white text-lg font-bold leading-tight">Port Terminal Expansion</h3>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- client -->
+ <section class="py-16 bg-surface overflow-hidden border-y border-outline-variant/10">
+<div class="max-w-7xl mx-auto px-8 mb-8 text-center">
+<span class="text-[10px] font-label uppercase tracking-[0.2em] text-secondary">Dipercaya oleh Pemimpin Industri</span>
+</div>
+<div class="overflow-hidden">
+  <div class="flex gap-20 animate-infinite-scroll whitespace-nowrap items-center opacity-40 grayscale hover:grayscale-0 transition-all">
+<div class="flex items-center gap-20">
+<div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_A</div>
+<div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_B</div>
+<div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_C</div>
+<div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_D</div>
+<div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_E</div>
+<div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_F</div>
+</div>
+<!-- Duplicate for seamless scroll -->
+<div aria-hidden="true" class="flex items-center gap-20">
+<div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_A</div>
+<div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_B</div>
+<div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_C</div>
+<div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_D</div>
+<div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_E</div>
+<div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_F</div>
+</div>
+</div>
+</div>
+</section>
+
+</main>

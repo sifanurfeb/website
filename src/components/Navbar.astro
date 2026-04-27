@@ -1,0 +1,166 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+<div class="hidden md:flex bg-transparent gap-2 justify-between p-3 text-black">
+    <div class="telp flex gap-3 items-center px-10">
+        <img src="/images/icon-phone.png" alt="" class="" width="15px">
+        <span class="">
+            <a href="wa.me/6285899225363" class="">0858-9922-5363</a>
+        </span>
+        <img src="/images/icon-phone.png" alt="" class="" width="15px">
+        <span class="">
+            <a href="wa.me/6281282792034" class="">0812-8279-2034</a>
+        </span>
+    </div>
+        <span class="px-10 uppercase text-red-500"><a href="" target="_blank">nfpa member</a></span>
+</div>
+<!-- <nav class="w-full bg-white sticky top-0 z-50 shadow-sm">
+    <div class="flex items-center justify-between p-4 max-w-7xl mx-auto">
+        <div class="flex-shrink-0">
+            <img src="/images/logo-etos.webp" alt="Logo" class="h-10 md:h-12 w-auto">
+        </div>
+
+        <ul class="hidden md:flex gap-8 capitalize text-black font-medium">
+            {['home', 'service', 'project', 'contact'].map((item) => (
+                <li class="group">
+                    <a href={`/${item === 'home' ? '' : item}`}>{item}</a>
+                    <div class="bg-red-600 h-[2px] w-0 group-hover:w-full transition-all duration-300"></div>
+                </li>
+            ))}
+        </ul>
+
+        <div class="flex items-center gap-4">
+            <button class="hidden md:block capitalize bg-red-700 px-4 py-2 rounded-lg text-white hover:bg-red-800 transition">
+                Company Profile
+            </button>
+            
+            <button id="menu-btn" class="block md:hidden text-black focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 p-4">
+        <ul class="flex flex-col gap-4 capitalize text-black">
+            <li><a href="/" class="block py-2">home</a></li>
+            <li><a href="/service" class="block py-2">service</a></li>
+            <li><a href="/project" class="block py-2">project</a></li>
+            <li><a href="/contact" class="block py-2">contact</a></li>
+            <li>
+                <button class="w-full text-left capitalize bg-red-700 p-3 rounded-lg text-white">
+                    Company Profile
+                </button>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<script>
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+
+    btn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+    });
+</script> -->
+
+<nav class="w-full bg-transparent sticky top-0 z-50 flex p-2 shadow-2xs" id="navbar">
+
+    <div class="flex items-center justify-between p-4 w-full">
+    <div class="flex-shrink-0 px-6 ">
+        <img src="/images/logo-etos.webp" alt="" class="h-8 md:h-12 w-auto">
+    </div>
+    <ul class="hidden md:flex gap-8 capitalize text-gray-200 font-medium">
+        {['home', 'service', 'project', 'contact'].map((item) => (
+                <li class="group">
+                    <a class="hover:text-red-500 h-[2px] w-0 group-hover:w-full transition-all duration-300 font-bold" href={`/${item === 'home' ? '' : item}`}>{item}</a>
+                    <div class=" bg-red-600 h-[2px] w-0 group-hover:w-full transition-all duration-300"></div>
+                </li>
+            ))}
+        <!-- <li class="group">
+            <a href="">home</a>
+            <div class="bg-red-600 h-[2px] w-0 group-hover:w-full transition-all duration-300"></div>
+        </li>
+        <li class="group">
+            <a href="">service</a>
+            <div class="bg-red-600 h-[2px] w-0 group-hover:w-full transition-all duration-300"></div>
+        </li>
+        <li class="group">
+            <a href="">project</a>
+            <div class="bg-red-600 h-[2px] w-0 group-hover:w-full transition-all duration-300"></div>
+        </li>
+        <li class="group">
+            <a href="">contact</a>
+            <div class="bg-red-600 h-[2px] w-0 group-hover:w-full transition-all duration-300"></div>
+        </li> -->
+    </ul>
+        <!-- <button class="hidden md:block capitalize mx-5 bg-red-700 p-2 rounded-lg 
+text-white hover:bg-red-500 hover:text-black transition-all duration-300">
+        </button> -->
+                <a href="" class="hidden md:block capitalize mx-5 bg-red-700 p-2 rounded-lg 
+                    text-white hover:bg-red-500 hover:text-black transition-all duration-300 cursor-pointer">company profile
+                </a>
+        <button id="menu-btn" class="block md:hidden text-black z-[60] relative">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+        </button>
+
+    </div>
+    <!-- mobile-menu -->
+     <div id="menu-overlay" class="fixed inset-0 bg-black/50 z-40 hidden opacity-0 transition-opacity duration-300"></div>
+     <div id="mobile-sidebar" class="fixed top-0 right-0 h-full w-[75%] max-w-[300px] bg-black z-50 translate-x-full transition-transform duration-300 ease-in-out shadow-2xl p-6">
+    <div class="flex flex-col gap-8 mt-16">
+        <ul class="flex flex-col gap-6 capitalize text-gray-200 text-xl font-semibold">
+            {['home', 'service', 'project', 'contact'].map((item) => (
+                <li class="group">
+                    <a class="hover:text-red-500 font-bold" href={`/${item === 'home' ? '' : item}`}>{item}</a>
+                    <div class=" bg-red-600 h-[2px] w-0 group-hover:w-full transition-all duration-300"></div>
+                </li>
+            ))}
+        </ul>
+        <button class="capitalize bg-red-700 p-4 rounded-lg text-white font-bold shadow-lg hover:bg-red-500 hover:text-black transition-all duration-300 cursor-pointer">
+            Company Profile
+        </button>
+        </div>
+     </div>
+</nav>
+
+
+
+<script is:inline>
+    const btn = document.getElementById('menu-btn');
+    const sidebar = document.getElementById('mobile-sidebar');
+    const overlay = document.getElementById('menu-overlay');
+    const menuIcon = document.getElementById('menu-icon');
+
+    function toggleMenu() {
+        // Slide Sidebar
+        sidebar.classList.toggle('translate-x-full');
+        
+        // Show/Hide Overlay
+        overlay.classList.toggle('hidden');
+        setTimeout(() => overlay.classList.toggle('opacity-100'), 10);
+
+        // Opsional: Ubah icon jadi 'X' saat terbuka
+        const isOpen = !sidebar.classList.contains('translate-x-full');
+        menuIcon.setAttribute('d', isOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16m-7 6h7');
+    }
+
+    btn.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+
+
+const navBg = document.getElementById("navbar");
+
+  window.addEventListener("scroll", () => {
+    let scroll = window.scrollY;
+
+    // max efek sampai 200px scroll
+    let opacity = Math.min(scroll / 200, 0.8);
+
+    navBg.style.background = `rgba(0,0,0,${opacity})`;
+  });
+</script>

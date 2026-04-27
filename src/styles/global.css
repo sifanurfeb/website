@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  /* COLORS */
+  --color-on-surface-variant: #5b403f;
+  --color-primary-container: #be1e2d;
+  --color-surface-container-highest: #e1e3e4;
+  --color-error-container: #ffdad6;
+  --color-primary: #98001b;
+  --color-surface-bright: #f8fafb;
+  --color-surface-container: #eceeef;
+  --color-inverse-primary: #ffb3b0;
+  --color-on-secondary-fixed-variant: #3c494f;
+  --color-primary-fixed-dim: #ffb3b0;
+  --color-surface-dim: #d8dadb;
+  --color-tertiary: #005066;
+  --color-outline-variant: #e3bebb;
+  --color-on-secondary-fixed: #111d23;
+  --color-surface-container-lowest: #ffffff;
+  --color-secondary-container: #d7e4ec;
+  --color-background: #f8fafb;
+  --color-on-error-container: #93000a;
+  --color-error: #ba1a1a;
+  --color-on-primary: #ffffff;
+  --color-tertiary-container: #006a85;
+  --color-surface-container-low: #f2f4f5;
+  --color-primary-fixed: #ffdad8;
+  --color-on-primary-fixed-variant: #930019;
+  --color-surface-variant: #e1e3e4;
+  --color-secondary: #546067;
+  --color-on-tertiary-fixed: #001f29;
+  --color-surface-tint: #b91a2a;
+  --color-on-tertiary-container: #abe6ff;
+  --color-on-secondary-container: #5a666d;
+  --color-on-primary-container: #ffd3d1;
+  --color-on-secondary: #ffffff;
+  --color-secondary-fixed: #d7e4ec;
+  --color-tertiary-fixed-dim: #85d1ef;
+  --color-secondary-fixed-dim: #bbc8d0;
+  --color-on-background: #191c1d;
+  --color-surface-container-high: #e6e8e9;
+  --color-on-tertiary-fixed-variant: #004d62;
+  --color-surface: #f8fafb;
+  --color-on-surface: #191c1d;
+  --color-tertiary-fixed: #baeaff;
+  --color-outline: #8f6f6e;
+  --color-on-tertiary: #ffffff;
+  --color-on-error: #ffffff;
+  --color-on-primary-fixed: #410006;
+  --color-inverse-surface: #2e3132;
+  --color-inverse-on-surface: #eff1f2;
+
+  /* BORDER RADIUS */
+  --radius: 0.125rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+  --radius-full: 0.75rem;
+
+  /* FONT */
+  --font-headline: "Plus Jakarta Sans", sans-serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
+  --font-label: "Plus Jakarta Sans", sans-serif;
+}
+@keyframes infinite-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-infinite-scroll {
+  animation: infinite-scroll 25s linear infinite;
+  width: max-content;
+}
+.animate-infinite-scroll:hover {
+  animation-play-state: paused;
+}
