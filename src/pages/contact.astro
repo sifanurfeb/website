@@ -1,0 +1,164 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+<Layout title="Kontak">
+    <main>
+        <!-- Hero Section -->
+<section class="relative pt-24 pb-12 px-8 max-w-screen-2xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
+<div class="md:col-span-8">
+<span class="label-md uppercase tracking-widest text-on-surface-variant font-bold mb-4 block">Connect with Authority</span>
+<h1 class="text-5xl md:text-7xl font-display font-extrabold tracking-tighter text-on-surface">
+                        Precision Engineering <br/> <span class="text-primary">Consultation.</span>
+</h1>
+</div>
+<div class="md:col-span-4 pb-4">
+<p class="text-secondary body-lg leading-relaxed">
+                        Our technical support team is available for architectural deep-dives and engineering specifications. Reach out to initiate your next blueprint.
+                    </p>
+</div>
+</div>
+</section>
+
+
+<!-- Main Content Grid -->
+<section class="px-8 pb-24 max-w-screen-2xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+<!-- Inquiry Form (Floating Card) -->
+<div class="lg:col-span-7">
+<div class="bg-surface-container-lowest p-10 rounded-xl ambient-shadow ghost-border">
+<h2 class="text-2xl font-bold mb-8 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="description">description</span>
+                            Technical Inquiry Form
+                        </h2>
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs uppercase font-bold text-secondary tracking-widest">Full Name</label>
+<input class="w-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary rounded-md p-4 transition-all" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs uppercase font-bold text-secondary tracking-widest">Email Address</label>
+<input class="w-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary rounded-md p-4 transition-all" placeholder="john@company.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs uppercase font-bold text-secondary tracking-widest">Company / Organization</label>
+<input class="w-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary rounded-md p-4 transition-all" placeholder="Global Infrastructure Ltd." type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs uppercase font-bold text-secondary tracking-widest">Project Description</label>
+<textarea class="w-full bg-surface-container-low border-none focus:ring-2 focus:ring-primary rounded-md p-4 transition-all" placeholder="Detail your engineering requirements..." rows="5"></textarea>
+</div>
+<button class="w-full py-5 bg-gradient-to-r from-primary to-primary-container text-on-primary font-extrabold uppercase tracking-widest rounded-md hover:opacity-90 transition-all flex justify-center items-center gap-3" type="submit">
+                                Submit Specification
+                                <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form>
+</div>
+</div>
+<!-- Contact Details -->
+<div class="lg:col-span-5 flex flex-col justify-between">
+<div class="space-y-12">
+<div class="group">
+<h3 class="text-xs uppercase tracking-[0.2em] font-black text-primary mb-6">Headquarters</h3>
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" data-icon="location_on">location_on</span>
+</div>
+<div>
+<p class="font-bold text-lg mb-1">Jakarta Global Hub</p>
+<p class="text-secondary leading-relaxed">
+                                        Sudirman Central Business District, <br/>
+                                        Tower 5, Level 42, <br/>
+                                        Jakarta Selatan 12190, Indonesia
+                                    </p>
+</div>
+</div>
+</div>
+<div class="group">
+<h3 class="text-xs uppercase tracking-[0.2em] font-black text-primary mb-6">Direct Channels</h3>
+<div class="space-y-6">
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" data-icon="phone_in_talk">phone_in_talk</span>
+</div>
+<div>
+<p class="text-xs uppercase font-bold text-secondary opacity-60">Engineering Support</p>
+<p class="font-bold text-lg">+62 21 555 8899</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" data-icon="alternate_email">alternate_email</span>
+</div>
+<div>
+<p class="text-xs uppercase font-bold text-secondary opacity-60">General Correspondance</p>
+<p class="font-bold text-lg">specs@apar-engineering.com</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-12 bg-surface-container-low p-8 rounded-lg relative overflow-hidden">
+<div class="relative z-10">
+<p class="text-xs uppercase font-bold text-secondary mb-2">Technical Availability</p>
+<p class="text-sm font-medium">Mon - Fri: 08:00 - 18:00 (GMT+7)</p>
+<p class="text-sm font-medium">Sat - Sun: Emergency Dispatch Only</p>
+</div>
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-9xl opacity-5 pointer-events-none" data-icon="schedule">schedule</span>
+</div>
+</div>
+</div>
+</section>
+
+
+<!-- Map Integration Section -->
+<section class="w-full h-[500px] bg-surface-container relative">
+<div class="absolute inset-0 grayscale contrast-125 opacity-70">
+<img alt="Simplified map interface" class="w-full h-full object-cover" data-alt="Modern minimalist city map of Jakarta with clean grey streets and subtle red pin point architectural style" data-location="Jakarta" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPUuxxAdraXw9_OlNvXtOwbzdvNgVQruCunioidaW9DZwx2gfnuW-0y1xztz-sHhsTg4ZnGPRBvKOsfSv3gWrz82qaayWxFNJUVMPlSk2Mvn7P_m7A_kY0T4PkSAgonIV7VZrJ9ow45InuVQIsYgz4Bgrv9e4wh_DIhq6WJlmTmnf36pyRO9rdEbF1RLmQLEB49iDSIZ-cinYbyTY61r03d1z0pLnFlkkdkLEoR7qrVGeiE8UVVqtbkDjxNGxvRtxO8Yhtmm69P_4"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-surface opacity-80 pointer-events-none"></div>
+<!-- Map Overlay Card -->
+<div class="absolute top-1/2 left-8 md:left-24 -translate-y-1/2 bg-surface-container-lowest p-6 rounded-lg ambient-shadow ghost-border max-w-sm">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 bg-primary flex items-center justify-center rounded-sm flex-shrink-0">
+<span class="material-symbols-outlined text-on-primary" data-icon="apartment">apartment</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">APAR Main Facility</h4>
+<p class="text-sm text-secondary mt-1">Visit us for technical walkthroughs and mock-up reviews.</p>
+<a class="inline-block mt-4 text-primary font-bold text-xs uppercase tracking-widest hover:underline decoration-2 underline-offset-4 transition-all" href="#">
+                            Open in Nav System
+                        </a>
+</div>
+</div>
+</div>
+</section>
+
+
+<!-- Secondary Locations (Bento Style) -->
+<section class="px-8 py-24 max-w-screen-2xl mx-auto bg-surface-container-low">
+<div class="mb-12">
+<h3 class="text-3xl font-display font-extrabold tracking-tight">Regional Hubs</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-surface p-8 rounded-xl ambient-shadow">
+<p class="text-primary font-bold mb-4">Surabaya Office</p>
+<p class="text-sm text-secondary leading-relaxed">Industrial Port Zone A, North Surabaya. Precision manufacturing and logistics specialist center.</p>
+</div>
+<div class="bg-surface p-8 rounded-xl ambient-shadow">
+<p class="text-primary font-bold mb-4">Bandung R&amp;D</p>
+<p class="text-sm text-secondary leading-relaxed">High-altitude testing facility for structural stress and environmental engineering research.</p>
+</div>
+<div class="bg-surface p-8 rounded-xl ambient-shadow">
+<p class="text-primary font-bold mb-4">Singapore Nexus</p>
+<p class="text-sm text-secondary leading-relaxed">Regional financial operations and international architectural liaison office.</p>
+</div>
+</div>
+</section>
+
+
+    </main>
+
+</Layout>

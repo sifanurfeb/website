@@ -1,0 +1,207 @@
+---
+import Layout from  "../../layouts/Layout.astro";
+import { client, urlFor } from "../../lib/sanity";
+
+// Featured article
+const featuredPost = await client.fetch(`
+  *[_type == "post"] | order(publishedAt desc)[0]{
+    title,
+    slug,
+    excerpt,
+    publishedAt,
+    mainImage,
+    category,
+    seoTitle,
+    seoDescription
+  }
+`);
+
+// Latest articles
+const posts = await client.fetch(`
+  *[_type == "post"] | order(publishedAt desc)[1...7]{
+    title,
+    slug,
+    excerpt,
+    publishedAt,
+    mainImage,
+    category
+  }
+`);
+
+// Most read / sidebar
+const popularPosts = await client.fetch(`
+  *[_type == "post"] | order(views desc)[0...3]{
+    title,
+    slug,
+    category
+  }
+`);
+---
+
+<Layout
+  title={featuredPost?.seoTitle || "Insights & Articles | Etos Jaya Utama"}
+  description={featuredPost?.seoDescription || "Latest engineering insights, safety systems, fire protection, and industrial project expertise from Etos Jaya Utama."}
+>
+
+<!-- Hero Section -->
+<section class="max-w-[1920px] mx-auto px-6 md:px-12 mb-20 pt-24">
+  {featuredPost && (
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 overflow-hidden rounded-xl bg-surface-container-low shadow-[0px_12px_32px_rgba(25,28,29,0.06)]">
+      
+      <div class="lg:col-span-7 h-[400px] lg:h-[600px] relative">
+        <img
+          src={urlFor(featuredPost.mainImage).width(1400).height(900).url()}
+          alt={featuredPost.title}
+          class="w-full h-full object-cover"
+          loading="eager"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent"></div>
+      </div>
+
+      <div class="lg:col-span-5 p-8 md:p-16 flex flex-col justify-center">
+        <span class="inline-block text-primary font-bold tracking-widest text-xs uppercase mb-6 bg-primary-container/10 px-3 py-1 self-start">
+          Featured Analysis
+        </span>
+
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[0.9] mb-8">
+          {featuredPost.title}
+        </h1>
+
+        <p class="text-secondary body-lg mb-10 max-w-md">
+          {featuredPost.excerpt}
+        </p>
+
+        <div class="flex items-center space-x-4 mb-10">
+          <div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center">
+            <span class="material-symbols-outlined text-primary">engineering</span>
+          </div>
+          <div>
+            <p class="text-xs font-bold uppercase tracking-widest">Editorial Team</p>
+            <p class="text-xs text-secondary">
+              {new Date(featuredPost.publishedAt).toLocaleDateString("id-ID", {
+                day: "numeric",
+                month: "short",
+                year: "numeric"
+              })}
+            </p>
+          </div>
+        </div>
+
+        <a
+          href={`/article/${featuredPost.slug.current}`}
+          class="group flex items-center text-primary font-bold text-sm uppercase tracking-widest"
+        >
+          Access Full Report
+          <span class="material-symbols-outlined ml-2 transition-transform group-hover:translate-x-1">
+            arrow_forward
+          </span>
+        </a>
+      </div>
+
+    </div>
+  )}
+</section>
+
+<!-- Main Content -->
+<section class="max-w-[1920px] mx-auto px-6 md:px-12 pb-24">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+
+    <!-- Articles Grid -->
+    <div class="lg:col-span-8">
+
+      <div class="flex items-baseline justify-between mb-12 border-b border-outline-variant/15 pb-4">
+        <h2 class="text-3xl font-black tracking-tighter">Latest Insights</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-10">
+
+        {posts.map((post) => (
+          <article class="group">
+            <a href={`/article/${post.slug.current}`}>
+
+              <div class="aspect-[16/10] overflow-hidden mb-6 bg-surface-container">
+                <img
+                  src={urlFor(post.mainImage).width(800).height(500).url()}
+                  alt={post.title}
+                  class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-100 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+
+              <span class="text-[10px] font-black tracking-[0.2em] uppercase text-primary mb-3 block">
+                {post.category || "Technical"}
+              </span>
+
+              <h3 class="text-2xl font-bold tracking-tight mb-4 group-hover:text-primary transition-colors">
+                {post.title}
+              </h3>
+
+              <p class="text-secondary text-sm leading-relaxed mb-6">
+                {post.excerpt}
+              </p>
+
+              <span class="text-xs font-black uppercase tracking-widest border-b border-outline-variant pb-1 group-hover:border-primary transition-colors">
+                Read More
+              </span>
+
+            </a>
+          </article>
+        ))}
+
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="lg:col-span-4 space-y-16">
+
+      <!-- Most Read -->
+      <div>
+        <h4 class="text-xs font-black uppercase tracking-[0.3em] mb-8 border-l-4 border-primary pl-4">
+          Most Read
+        </h4>
+
+        <div class="space-y-8">
+          {popularPosts.map((post, index) => (
+            <a href={`/article/${post.slug.current}`} class="group block">
+              <p class="text-[10px] font-bold text-secondary uppercase tracking-widest mb-1">
+                0{index + 1} / {post.category || "Technical"}
+              </p>
+              <h5 class="text-lg font-bold leading-tight group-hover:text-primary transition-colors">
+                {post.title}
+              </h5>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="bg-surface-container-low p-8 md:p-10 rounded-xl relative overflow-hidden">
+        <div class="relative z-10">
+          <h4 class="text-2xl font-black tracking-tighter mb-4">
+            The Editorial.
+          </h4>
+
+          <p class="text-secondary text-sm mb-8">
+            Receive our monthly briefing on industrial precision and engineering breakthroughs.
+          </p>
+
+          <form class="space-y-4">
+            <input
+              class="w-full bg-surface-container-lowest border-none px-4 py-3 text-sm focus:ring-2 focus:ring-primary rounded-md"
+              placeholder="Professional Email"
+              type="email"
+            />
+
+            <button class="w-full bg-primary text-on-primary py-3 text-xs font-black uppercase tracking-widest rounded-md hover:opacity-90 transition-opacity">
+              Subscribe Now
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </aside>
+
+  </div>
+</section>
+
+</Layout>

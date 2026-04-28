@@ -73,7 +73,7 @@ import Layout from "../layouts/Layout.astro";
         <img src="/images/logo-etos.webp" alt="" class="h-8 md:h-12 w-auto">
     </div>
     <ul class="hidden md:flex gap-8 capitalize text-gray-200 font-medium">
-        {['home', 'service', 'project', 'contact'].map((item) => (
+        {['home', 'service', 'project','article', 'contact'].map((item) => (
                 <li class="group">
                     <a class="hover:text-red-500 h-[2px] w-0 group-hover:w-full transition-all duration-300 font-bold" href={`/${item === 'home' ? '' : item}`}>{item}</a>
                     <div class=" bg-red-600 h-[2px] w-0 group-hover:w-full transition-all duration-300"></div>
