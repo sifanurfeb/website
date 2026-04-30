@@ -1,16 +1,45 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { client, urlFor } from '../lib/sanity';
+
+const media = await client.fetch(`
+  *[_type == "media"][3]{
+    image,
+    alt
+  }
+`);
+const mail = await client.fetch(`
+  *[_type == "media"][1]{
+    image,
+    alt
+  }
+`);
 ---
 <div class="hidden md:flex bg-transparent gap-2 justify-between p-3 text-black">
     <div class="telp flex gap-3 items-center px-10">
-        <img src="/images/icon-phone.png" alt="" class="" width="15px">
+      <img 
+        alt={media?.alt || "Phone Icon"} 
+        src={
+            media?.image
+            ? urlFor(media.image).width(15).format('webp').url()
+            : '/images/icon.jpg'
+  }
+        />
         <span class="">
             <a href="wa.me/6285899225363" class="">0858-9922-5363</a>
         </span>
-        <img src="/images/icon-phone.png" alt="" class="" width="15px">
         <span class="">
             <a href="wa.me/6281282792034" class="">0812-8279-2034</a>
         </span>
+              <img 
+        alt={mail?.alt || "Mail Icon"} 
+        src={
+            mail?.image
+            ? urlFor(mail.image).width(15).format('webp').url()
+            : '/images/mail.jpg'}
+        />
+        <span><a href="mailto:etosjayautama@yahoo.com">Etos Jaya Utama</a></span>
+        <span><a href="mailto:sales@etosjayautama.id">Sales</a></span>
     </div>
         <span class="px-10 uppercase text-red-500"><a href="" target="_blank">nfpa member</a></span>
 </div>

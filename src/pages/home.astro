@@ -2,7 +2,7 @@
 import { client, urlFor } from '../lib/sanity';
 
 const hero = await client.fetch(`
-  *[_type == "media"][0]{
+  *[_type == "media"][2]{
     image,
     alt
   }
@@ -14,14 +14,14 @@ const hero = await client.fetch(`
     <div class="absolute inset-0 z-0">
 <img 
   alt={hero?.alt || "Hero Image"} 
-  class="w-full h-full object-cover opacity-80"
+  class="w-full h-full object-cover opacity-90"
   src={
     hero?.image
       ? urlFor(hero.image).width(1920).format('webp').url()
-      : '/images/bg-fire.jpg'
+      : '/images/hero.jpg'
   }
 />
-            <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/5 "></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/1 "></div>
     </div>
     <div class="relative z-10 max-w-7xl mx-auto px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div class="lg:col-span-8 flex flex-col justify-center">
