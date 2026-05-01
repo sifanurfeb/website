@@ -62,54 +62,6 @@
   --font-headline: "Plus Jakarta Sans", sans-serif;
   --font-body: "Plus Jakarta Sans", sans-serif;
   --font-label: "Plus Jakarta Sans", sans-serif;
-
-/* --tertiary: "#005066";
---on-secondary-fixed": "#111d23";
---on-surface-variant": "#5b403f";
---surface-dim": "#d8dadb";
---inverse-surface": "#2e3132";
---primary-fixed": "#ffdad8";
---on-tertiary-fixed-variant": "#004d62";
---on-secondary": "#ffffff";
---on-error-container": "#93000a"
---surface-container": "#eceeef";
---primary-container": "#be1e2d";
---surface-container-lowest": "#ffffff";
---primary": "#98001b";
---surface-container-high": "#e6e8e9";
---surface-bright": "#f8fafb";
---surface": "#f8fafb";
---outline": "#8f6f6e";
---on-primary-fixed-variant": "#930019";
---on-secondary-container": "#5a666d";
---on-tertiary": "#ffffff";
---primary-fixed-dim": "#ffb3b0";
---on-tertiary-container": "#abe6ff";
---tertiary-container": "#006a85";
---on-background": "#191c1d";
---inverse-primary": "#ffb3b0";
---on-primary-fixed": "#410006";
---secondary": "#546067";
---surface-tint": "#b91a2a";
---error-container": "#ffdad6";
---surface-container-low": "#f2f4f5";
---on-tertiary-fixed": "#001f29";
---tertiary-fixed-dim": "#85d1ef";
---secondary-fixed": "#d7e4ec";
---inverse-on-surface": "#eff1f2";
---secondary-container": "#d7e4ec";
---on-primary": "#ffffff";
---on-surface": "#191c1d";
---surface-container-highest": "#e1e3e4";
---secondary-fixed-dim": "#bbc8d0";
---on-primary-container": "#ffd3d1";
---on-error": "#ffffff";
---background": "#f8fafb";
---surface-variant": "#e1e3e4";
---error": "#ba1a1a";
---tertiary-fixed": "#baeaff";
---outline-variant": "#e3bebb";
---on-secondary-fixed-variant": "#3c494f; */
 }
 
 @keyframes infinite-scroll {
@@ -137,3 +89,32 @@
         .ghost-border {
             outline: 1px solid rgba(227, 190, 187, 0.15);
         }
+      
+         [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .reveal-up,
+  .zoom-in,
+  .fade-in {
+    opacity: 0;
+    transition: all 0.8s ease;
+    will-change: transform, opacity;
+  }
+
+  .reveal-up {
+    transform: translateY(40px);
+  }
+
+  .zoom-in {
+    transform: scale(0.9);
+  }
+
+  .fade-in {
+    transform: none;
+  }
+
+  .active {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+  }
