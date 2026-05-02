@@ -1,12 +1,8 @@
 ---
 import { client, urlFor } from '../lib/sanity';
+import MediaBySlug from '../lib/media.astro';
 
-const hero = await client.fetch(`
-  *[_type == "media" && slug.current == "hero"][0]{
-    image,
-    alt
-  }
-`);
+// const hero = await getMediaBySlug("hero");
 
 // Data Statistik
 const stats = [
@@ -21,17 +17,11 @@ const stats = [
 <!-- hero section -->
 <section class="relative min-h-[921px] flex items-center pb-12 overflow-hidden -mt-25 reveal-up">
     <div class="absolute inset-0 z-0">
-<img 
-  alt={hero?.alt || "Hero Image"} 
-  class="w-full h-full object-cover object-center"
-  src={
-    hero?.image
-      ? urlFor(hero.image).width(1920).format('webp').url()
-      : '/images/hero.jpg'
-  }
-  <div class="absolute inset-0 bg-on-surface"></div>
-  <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
-/>
+<MediaBySlug 
+        slug="bg-fire"
+        width={1920}
+        height={1080}/>
+        <div class="w-full h-96 object-cover rounded-lg"></div>
 <!-- <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/0.9 "></div> -->
 <div class="absolute inset-0 bg-on-surface/45"></div>
     </div>
@@ -298,8 +288,9 @@ hover:cursor-pointer">
 <div class="overflow-hidden">
   <div class="flex gap-20 animate-infinite-scroll whitespace-nowrap items-center opacity-40 grayscale hover:grayscale-0 transition-all">
 <div class="flex items-center gap-20">
-<div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_A</div>
-<div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_B</div>
+<div class="w-32 h-12 flex items-center justify-center">
+</div>
+<div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_B1</div>
 <div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_C</div>
 <div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_D</div>
 <div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_E</div>
@@ -321,6 +312,7 @@ hover:cursor-pointer">
 </main>
 
 <script>
+  
   document.addEventListener("DOMContentLoaded", () => {
     const counters = document.querySelectorAll(".counter");
 
