@@ -1,9 +1,26 @@
 ---
 import { client, urlFor } from '../lib/sanity';
-import MediaBySlug from '../lib/media.astro';
 
-// const hero = await getMediaBySlug("hero");
+const { slug } = Astro.params;
 
+const query = `*[_type == "media" && slug.current == "hero"][0] {
+  title,
+  "imageUrl": image.asset->url,
+  alt
+}`;
+const abbottQuery = `*[_type == "media" && slug.current == "abbott"][0] {
+  title,
+  "imageUrl": image.asset->url,
+  alt
+}`;
+
+const media = await client.fetch(query, { slug });
+const abbott = await client.fetch(abbottQuery, { slug });
+
+// Jika slug tidak ditemukan
+if (!media) {
+  return Astro.redirect('/404');
+}
 // Data Statistik
 const stats = [
   { value: 850, suffix: "+", label: "Projek Selesai" },
@@ -17,10 +34,13 @@ const stats = [
 <!-- hero section -->
 <section class="relative min-h-[921px] flex items-center pb-12 overflow-hidden -mt-25 reveal-up">
     <div class="absolute inset-0 z-0">
-<MediaBySlug 
-        slug="bg-fire"
-        width={1920}
-        height={1080}/>
+     {media.imageUrl && (
+    <img 
+      src={media.imageUrl} 
+      alt={media.alt || media.title} 
+      class="w-full"
+    />
+  )}
         <div class="w-full h-96 object-cover rounded-lg"></div>
 <!-- <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/0.9 "></div> -->
 <div class="absolute inset-0 bg-on-surface/45"></div>
@@ -290,7 +310,14 @@ hover:cursor-pointer">
 <div class="flex items-center gap-20">
 <div class="w-32 h-12 flex items-center justify-center">
 </div>
-<div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_B1</div>
+<div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">
+   {abbott.imageUrl && (
+    <img 
+      src={abbott.imageUrl} 
+      alt={abbott.alt || abbott.title} 
+    />
+  )}
+</div>
 <div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_C</div>
 <div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_D</div>
 <div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_E</div>

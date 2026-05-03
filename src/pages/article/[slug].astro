@@ -1,4 +1,4 @@
-<!-- ---
+---
 import { sanity } from '../../lib/sanity';
 
 // ambil semua slug
@@ -25,25 +25,4 @@ const article = await sanity.fetch(
   }`,
   { slug }
 );
----
-
-<h1 class="text-3xl font-bold">{article.title}</h1>
-<p class="mt-4">{article.content}</p> -->
----
-import { getArticleBySlug, getAllArticles, type Article } from '../../lib/query';
-
-export async function getStaticPaths() {
-  const articles = await getAllArticles();
-  return articles.map((article: Article) => ({
-    params: { slug: article.slug },
-    props: { article }
-  }));
-}
-
-const { slug } = Astro.params;
-const article = await getArticleBySlug(slug);
-
-if (!article) {
-  return Astro.redirect('/404');
-}
 ---

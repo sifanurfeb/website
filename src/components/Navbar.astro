@@ -2,42 +2,49 @@
 import Layout from "../layouts/Layout.astro";
 import { client, urlFor } from '../lib/sanity';
 
-const media = await client.fetch(`
-  *[_type == "media"][3]{
-    image,
-    alt
-  }
-`);
-const mail = await client.fetch(`
-  *[_type == "media"][1]{
-    image,
-    alt
-  }
-`);
+const { slug } = Astro.params;
+
+const phone = `*[_type == "media" && slug.current == "phone"][0] {
+  title,
+  "imageUrl": image.asset->url,
+  alt
+}`;
+const mail = `*[_type == "media" && slug.current == "mail"][0] {
+  title,
+  "imageUrl": image.asset->url,
+  alt
+}`;
+
+const phoneIcon = await client.fetch(phone, { slug });
+const mailIcon = await client.fetch(mail, { slug });
+
+// // Jika slug tidak ditemukan
+if (!phoneIcon || !mailIcon) {
+  return Astro.redirect('/404');
+}
 ---
 <div class="hidden md:flex bg-transparent gap-2 justify-between p-3 text-black">
     <div class="telp flex gap-3 items-center px-10">
-      <img 
-        alt={media?.alt || "Phone Icon"} 
-        src={
-            media?.image
-            ? urlFor(media.image).width(15).format('webp').url()
-            : '/images/icon.jpg'
-  }
+         {phoneIcon.imageUrl && (
+    <img
+        src={phoneIcon.imageUrl} 
+        alt={phoneIcon?.alt || "Phone Icon"}
+        style="width: 20px;"
         />
+    )}
         <span class="">
             <a href="wa.me/6285899225363" class="">0858-9922-5363</a>
         </span>
         <span class="">
             <a href="wa.me/6281282792034" class="">0812-8279-2034</a>
         </span>
-              <img 
-        alt={mail?.alt || "Mail Icon"} 
-        src={
-            mail?.image
-            ? urlFor(mail.image).width(15).format('webp').url()
-            : '/images/mail.jpg'}
+        {mailIcon.imageUrl && (
+    <img
+        src={mailIcon.imageUrl} 
+        alt={mailIcon?.alt || "Mail Icon"}
+        style="width: 20px;"
         />
+    )}
         <span><a href="mailto:etosjayautama@yahoo.com">Etos Jaya Utama</a></span>
         <span><a href="mailto:sales@etosjayautama.id">Sales</a></span>
     </div>

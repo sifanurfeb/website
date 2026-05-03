@@ -2,42 +2,7 @@
 import { getAllMedia, getMediaBySlug } from '../lib/query';
 import { urlFor } from '../lib/sanity';
 import type { Media } from '../lib/query';
- 
-// interface Props {
-//   slug: string;
-//   width?: number;
-//   height?: number;
-//   className?: string;
-//   loading?: 'lazy' | 'eager';
-//   showTitle?: boolean;
-//   showDescription?: boolean;
-//   link?: boolean;
-// }
- 
-// const { 
-//   slug,
-//   width = 800,
-//   height,
-//   className = '',
-//   loading = 'lazy',
-//   showTitle = false,
-//   showDescription = false,
-//   link = false
-// } = Astro.props;
- 
-// // Ambil media berdasarkan slug
-// const media = await getMediaBySlug(slug);
- 
-// if (!media) {
-//   throw new Error(`Media dengan slug "${slug}" tidak ditemukan`);
-// }
- 
-// let imageUrl = urlFor(media.image).width(width);
-// if (height) {
-//   imageUrl = imageUrl.height(height);
-// }
-// const finalUrl = imageUrl.url();
-// const imgLoading = loading as 'lazy' | 'eager';
+
 export async function getStaticPaths() {
   const media = await getAllMedia();
   return media.map((m: Media) => ({
@@ -52,4 +17,6 @@ const media = await getMediaBySlug(slug);
 if (!media) {
   return Astro.redirect('/404');
 }
+
+
 ---

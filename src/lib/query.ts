@@ -25,17 +25,31 @@ export async function getArticleBySlug(slug: string) {
  * Ambil media dari Sanity berdasarkan slug
  * @param slug - nama file / slug dari media
  */
+// lib/query.ts
+export async function getAllMedia() {
+  // Ganti 'media' dengan nama tipe dokumen di schema kamu
+  const query = `*[_type == "media"] {
+    "slug": slug.current,
+    "nama": namaGambar,
+    "url": gambar.asset->url
+  }`;
+  return await client.fetch(query);
+}
+
+// lib/query.ts
 export async function getMediaBySlug(slug: string) {
-  return await client.fetch(`
-    *[_type == "media" && slug.current == $slug][0]{
-      _id,
-      title,
-      slug,
-      image,
-      alt,
-      description
-    }
-  `, { slug });
+  // Tambahkan pengecekan agar tidak error jika slug kosong
+  if (!slug) return null;
+
+  const query = `*[_type == "media" && slug.current == $slug][0] {
+    "slug": slug.current,
+    "nama": namaGambar,
+    "url": gambar.asset->url,
+    "alt": altText
+  }`;
+
+  // Pastikan parameter kedua adalah objek { slug }
+  return await sanityClient.fetch(query, { slug: slug });
 }
 
 /**
@@ -65,24 +79,6 @@ export async function getAllArticles() {
   `);
 }
 
-/**
- * Ambil semua media
- */
-export async function getAllMedia() {
-  return await client.fetch(`
-    *[_type == "media"]{
-      _id,
-      title,
-      slug,
-      image,
-      alt
-    }
-  `);
-}
-
-/**
- * Ambil artikel dengan related articles
- */
 export async function getArticleWithRelated(slug: string) {
   const article = await getArticleBySlug(slug);
   
