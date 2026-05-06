@@ -13,9 +13,33 @@ const abbottQuery = `*[_type == "media" && slug.current == "abbott"][0] {
   "imageUrl": image.asset->url,
   alt
 }`;
+const wahanaQuery = `*[_type == "media" && slug.current == "wahana"][0] {
+  title,
+  "imageUrl": image.asset->url,
+  alt
+}`;
+const ammanQuery = `*[_type == "media" && slug.current == "amman"][0] {
+  title,
+  "imageUrl": image.asset->url,
+  alt
+}`;
+const basQuery = `*[_type == "media" && slug.current == "bas"][0] {
+  title,
+  "imageUrl": image.asset->url,
+  alt
+}`;
+const baliQuery = `*[_type == "media" && slug.current == "balihai"][0] {
+  title,
+  "imageUrl": image.asset->url,
+  alt
+}`;
 
 const media = await client.fetch(query, { slug });
 const abbott = await client.fetch(abbottQuery, { slug });
+const wahana = await client.fetch(wahanaQuery, { slug });
+const amman = await client.fetch(ammanQuery, { slug });
+const bas = await client.fetch(basQuery, { slug });
+const bali = await client.fetch(baliQuery, { slug });
 
 // Jika slug tidak ditemukan
 if (!media) {
@@ -306,22 +330,55 @@ hover:cursor-pointer">
 <span class="text-[10px] font-label uppercase tracking-[0.2em] text-secondary">Dipercaya oleh Pemimpin Industri</span>
 </div>
 <div class="overflow-hidden">
-  <div class="flex gap-20 animate-infinite-scroll whitespace-nowrap items-center opacity-40 grayscale hover:grayscale-0 transition-all">
-<div class="flex items-center gap-20">
-<div class="w-32 h-12 flex items-center justify-center">
+  <div class="flex gap-10 animate-infinite-scroll whitespace-nowrap items-center opacity-40 grayscale hover:grayscale-0 cursor-pointer transition-all">
+<div class="flex items-center gap-10">
+<div class="w-40 h-12 flex items-center justify-center">
 </div>
-<div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">
+<div class="w-32 h-20 rounded-2xl p-3 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">
    {abbott.imageUrl && (
     <img 
       src={abbott.imageUrl} 
-      alt={abbott.alt || abbott.title} 
+      alt={abbott.alt || abbott.title}
+      class="w-full h-full object-contain mix-blend-multiply" 
     />
   )}
 </div>
-<div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_C</div>
-<div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_D</div>
-<div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_E</div>
-<div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_F</div>
+<div class="w-32 h-20 rounded-2xl bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">
+ {wahana.imageUrl && (
+    <img 
+      src={wahana.imageUrl} 
+      alt={wahana.alt || wahana.title}
+      class="w-full h-full object-contain mix-blend-multiply" 
+    />
+  )}
+</div>
+<div class="w-32 h-20 rounded-2xl bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">
+ {amman.imageUrl && (
+    <img 
+      src={amman.imageUrl} 
+      alt={amman.alt || amman.title}
+      class="w-full h-full object-contain mix-blend-multiply" 
+    />
+  )}
+</div>
+<div class="w-32 h-20 rounded-2xl bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">
+ {bas.imageUrl && (
+    <img 
+      src={bas.imageUrl} 
+      alt={bas.alt || bas.title}
+      class="w-full h-full object-contain mix-blend-multiply" 
+    />
+  )}
+</div>
+<div class="w-32 h-20 rounded-2xl bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">
+ {bali.imageUrl && (
+    <img 
+      src={bali.imageUrl} 
+      alt={bali.alt || bali.title}
+      class="w-full h-full object-contain mix-blend-multiply" 
+    />
+  )}
+</div>
 </div>
 <!-- Duplicate for seamless scroll -->
 <div aria-hidden="true" class="flex items-center gap-20">
@@ -339,46 +396,70 @@ hover:cursor-pointer">
 </main>
 
 <script>
-  
-  document.addEventListener("DOMContentLoaded", () => {
-    const counters = document.querySelectorAll(".counter");
-
+  function initCounters() {
+    const counters = document.querySelectorAll('.counter');
+    
+    // Fungsi untuk menganimasikan angka
     const animateCounter = (counter) => {
-      const target = parseInt(counter.dataset.target);
-      const suffix = counter.dataset.suffix || "";
-      let count = 0;
-      const increment = Math.max(1, target / 100);
+      const target = +counter.getAttribute('data-target');
+      const suffix = counter.getAttribute('data-suffix') || '';
+      
+      // Kecepatan animasi (semakin besar angka, semakin lambat)
+      const speed = 200; 
+      
+      const updateCount = () => {
+        // Ambil angka saat ini (bersihkan karakter non-angka jika ada)
+        const currentCount = +counter.innerText.replace(/\D/g, '');
+        
+        // Hitung increment (penambahan per frame)
+        const inc = target / speed;
 
-      const updateCounter = () => {
-        count += increment;
-
-        if (count < target) {
-          counter.innerText = Math.ceil(count) + suffix;
-          requestAnimationFrame(updateCounter);
+        if (currentCount < target) {
+          // Jika belum mencapai target, tambahkan angkanya
+          counter.innerText = Math.ceil(currentCount + inc) + suffix;
+          // Panggil lagi fungsi ini dalam waktu dekat
+          setTimeout(updateCount, 10);
         } else {
+          // Jika sudah selesai, pastikan angkanya pas dengan target
           counter.innerText = target + suffix;
         }
       };
+      
+      updateCount();
+    };
 
-      updateCounter();
+    // Konfigurasi Observer
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5 // Trigger aktif ketika 50% bagian card terlihat di layar
     };
 
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          if (entry.target.classList.contains("counter")) {
-            animateCounter(entry.target);
-          }
+      entries.forEach(entry => {
+        const counter = entry.target;
+        const suffix = counter.getAttribute('data-suffix') || '';
 
-          entry.target.classList.add("active");
-          observer.unobserve(entry.target);
+        if (entry.isIntersecting) {
+          // 1. Jika card masuk ke layar, mulai animasi dari 0
+          counter.innerText = '0' + suffix; 
+          animateCounter(counter);
+        } else {
+          // 2. Jika card keluar dari layar, reset ke 0 secara diam-diam
+          counter.innerText = '0' + suffix;
         }
       });
-    }, {
-      threshold: 0.3,
-    });
+    }, observerOptions);
 
-    document.querySelectorAll(".counter, .reveal-up, .zoom-in, .fade-in")
-      .forEach((el) => observer.observe(el));
-  });
+    // Pantau semua elemen yang memiliki class .counter
+    counters.forEach(counter => {
+      observer.observe(counter);
+    });
+  }
+
+  // Inisialisasi saat DOM sudah siap diload
+  document.addEventListener('DOMContentLoaded', initCounters);
+
+  // WAJIB DITAMBAHKAN JIKA ANDA MENGGUNAKAN ASTRO VIEW TRANSITIONS
+  document.addEventListener('astro:page-load', initCounters);
 </script>
