@@ -33,6 +33,41 @@ const baliQuery = `*[_type == "media" && slug.current == "balihai"][0] {
   "imageUrl": image.asset->url,
   alt
 }`;
+const bdxQuery = `*[_type == "media" && slug.current == "bdx"][0] {
+  title,
+  "imageUrl": image.asset->url,
+  alt
+}`;
+const bkpQuery = `*[_type == "media" && slug.current == "bkp"][0] {
+  title,
+  "imageUrl": image.asset->url,
+  alt
+}`;
+const breadQuery = `*[_type == "media" && slug.current == "bread"][0] {
+  title,
+  "imageUrl": image.asset->url,
+  alt
+}`;
+const ciraQuery = `*[_type == "media" && slug.current == "cira"][0] {
+  title,
+  "imageUrl": image.asset->url,
+  alt
+}`;
+const dcsQuery = `*[_type == "media" && slug.current == "dcs"][0] {
+  title,
+  "imageUrl": image.asset->url,
+  alt
+}`;
+const energizerQuery = `*[_type == "media" && slug.current == "energizer"][0] {
+  title,
+  "imageUrl": image.asset->url,
+  alt
+}`;
+const grhaQuery = `*[_type == "media" && slug.current == "grha"][0] {
+  title,
+  "imageUrl": image.asset->url,
+  alt
+}`;
 
 const media = await client.fetch(query, { slug });
 const abbott = await client.fetch(abbottQuery, { slug });
@@ -40,6 +75,15 @@ const wahana = await client.fetch(wahanaQuery, { slug });
 const amman = await client.fetch(ammanQuery, { slug });
 const bas = await client.fetch(basQuery, { slug });
 const bali = await client.fetch(baliQuery, { slug });
+const bdx = await client.fetch(bdxQuery, { slug });
+const bkp = await client.fetch(bkpQuery, { slug });
+const bread = await client.fetch(breadQuery, { slug });
+const cira = await client.fetch(ciraQuery, { slug });
+const dcs = await client.fetch(dcsQuery, { slug });
+const energizer = await client.fetch(energizerQuery, { slug }); 
+const grha = await client.fetch(grhaQuery, { slug });
+
+
 
 // Jika slug tidak ditemukan
 if (!media) {
@@ -110,8 +154,8 @@ const stats = [
 <h2 class="text-4xl md:text-5xl font-extrabold tracking-tighter leading-tight">Solusi Terintegrasi Untuk Kompleksitas Industri</h2>
 </div>
 <div class="text-secondary text-sm font-medium border-l-3 border-primary pl-2 py-5">
-                        Kami memastikan setiap komponen diproduksi <br/> dengan toleransi mikron demi performa optimal.
-                    </div>
+Kami memastikan setiap komponen diproduksi <br/> dengan toleransi mikron demi performa optimal.
+</div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-1">
 <!-- Service Card 1 -->
@@ -334,7 +378,7 @@ hover:cursor-pointer">
 <div class="flex items-center gap-10">
 <div class="w-40 h-12 flex items-center justify-center">
 </div>
-<div class="w-32 h-20 rounded-2xl p-3 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">
+<div class="w-32 h-20 rounded-2xl p-3 bg-secondary/0.5 rounded flex items-center justify-center font-black text-secondary italic">
    {abbott.imageUrl && (
     <img 
       src={abbott.imageUrl} 
@@ -343,7 +387,7 @@ hover:cursor-pointer">
     />
   )}
 </div>
-<div class="w-32 h-20 rounded-2xl bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">
+<div class="w-32 h-20 rounded-2xl bg-secondary/0.5 rounded flex items-center justify-center font-black text-secondary italic">
  {wahana.imageUrl && (
     <img 
       src={wahana.imageUrl} 
@@ -352,7 +396,7 @@ hover:cursor-pointer">
     />
   )}
 </div>
-<div class="w-32 h-20 rounded-2xl bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">
+<div class="w-32 h-20 rounded-2xl bg-secondary/0.5 rounded flex items-center justify-center font-black text-secondary italic">
  {amman.imageUrl && (
     <img 
       src={amman.imageUrl} 
@@ -361,7 +405,7 @@ hover:cursor-pointer">
     />
   )}
 </div>
-<div class="w-32 h-20 rounded-2xl bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">
+<div class="w-32 h-20 rounded-2xl bg-secondary/0.5 rounded flex items-center justify-center font-black text-secondary italic">
  {bas.imageUrl && (
     <img 
       src={bas.imageUrl} 
@@ -370,7 +414,7 @@ hover:cursor-pointer">
     />
   )}
 </div>
-<div class="w-32 h-20 rounded-2xl bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">
+<div class="w-32 h-20 rounded-2xl bg-secondary/0.5 rounded flex items-center justify-center font-black text-secondary italic">
  {bali.imageUrl && (
     <img 
       src={bali.imageUrl} 
@@ -382,12 +426,69 @@ hover:cursor-pointer">
 </div>
 <!-- Duplicate for seamless scroll -->
 <div aria-hidden="true" class="flex items-center gap-20">
-<div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_A</div>
-<div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_B</div>
-<div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_C</div>
-<div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_D</div>
-<div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_E</div>
-<div class="w-32 h-12 bg-secondary/20 rounded flex items-center justify-center font-black text-secondary italic">CLIENT_F</div>
+<div class="w-32 h-12 bg-secondary/0.5 rounded flex items-center justify-center font-black text-secondary italic">
+{bdx.imageUrl && (
+    <img 
+      src={bdx.imageUrl} 
+      alt={bdx.alt || bdx.title}
+      class="w-full h-full object-contain mix-blend-multiply" 
+    />
+  )}
+</div>
+<div class="w-32 h-12 bg-secondary/0.5 rounded flex items-center justify-center font-black text-secondary italic">
+{bkp.imageUrl && (
+    <img 
+      src={bkp.imageUrl} 
+      alt={bkp.alt || bkp.title}
+      class="w-full h-full object-contain mix-blend-multiply" 
+    />
+  )}
+</div>
+<div class="w-32 h-12 bg-secondary/0.5 rounded flex items-center justify-center font-black text-secondary italic">
+  {bread.imageUrl && (
+      <img 
+        src={bread.imageUrl} 
+        alt={bread.alt || bread.title}
+        class="w-full h-full object-contain mix-blend-multiply" 
+      />
+    )}
+</div>
+<div class="w-32 h-12 bg-secondary/0.5 rounded flex items-center justify-center font-black text-secondary italic">
+{cira.imageUrl && (
+    <img 
+      src={cira.imageUrl} 
+      alt={cira.alt || cira.title}
+      class="w-full h-full object-contain mix-blend-multiply" 
+    />
+  )}
+</div>
+<div class="w-32 h-12 bg-secondary/0.5 rounded flex items-center justify-center font-black text-secondary italic">
+{dcs.imageUrl && (
+    <img 
+      src={dcs.imageUrl} 
+      alt={dcs.alt || dcs.title}
+      class="w-full h-full object-contain mix-blend-multiply" 
+    />
+  )}
+</div>
+<div class="w-32 h-12 bg-secondary/0.5 rounded flex items-center justify-center font-black text-secondary italic">
+{energizer.imageUrl && (
+    <img 
+      src={energizer.imageUrl} 
+      alt={energizer.alt || energizer.title}
+      class="w-full h-full object-contain mix-blend-multiply" 
+    />
+  )}
+</div>
+<div class="w-32 h-12 bg-secondary/0.5 rounded flex items-center justify-center font-black text-secondary italic">
+{grha.imageUrl && (
+    <img 
+      src={grha.imageUrl} 
+      alt={grha.alt || grha.title}
+      class="w-full h-full object-contain mix-blend-multiply" 
+    />
+  )}
+</div>
 </div>
 </div>
 </div>
