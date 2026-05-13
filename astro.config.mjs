@@ -23,5 +23,6 @@ export default defineConfig({
     enabled: false
   },
 
-  adapter: vercel()
+ output: 'static',
+  adapter: vercel(),
 });
