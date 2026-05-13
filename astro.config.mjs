@@ -3,6 +3,8 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
 import sanity from '@sanity/astro';
 
+import vercel from '@astrojs/vercel';
+
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
@@ -16,7 +18,10 @@ export default defineConfig({
       studioBasePath:'/admin',
     }),
   ],
+
   devToolbar:{
     enabled: false
-  }
+  },
+
+  adapter: vercel()
 });

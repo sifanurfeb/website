@@ -24,3 +24,4 @@ pnpm-debug.log*
 # jetbrains setting folder
 .DS_Store
 .idea/
+.vercel
