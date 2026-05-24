@@ -4,6 +4,11 @@ import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import AOS from "aos";
 import "aos/dist/aos.css";
+interface Props {
+	title: string;
+	description: string;
+}
+const { title, description } = Astro.props;
 
 ---
 <!doctype html>
@@ -11,10 +16,14 @@ import "aos/dist/aos.css";
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" href="/logo-etos.svg" />
 		<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
 		<meta name="Etos Jaya Utama" content={Astro.generator} />
-		<title>PT Etos Jaya Utama</title>
+		<title>{title}</title>
+		<meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 	</head>
 	
 	<body>
