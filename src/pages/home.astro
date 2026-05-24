@@ -78,6 +78,26 @@ const designQuery = `*[_type == "media" && slug.current == "design"][0] {
   "imageUrl": image.asset->url,
   alt
 }`;
+const mepQuery = `*[_type == "media" && slug.current == "mep"][0] {
+  title,
+  "imageUrl": image.asset->url,
+  alt
+}`;
+const firealarmQuery = `*[_type == "media" && slug.current == "firealarm"][0] {
+  title,
+  "imageUrl": image.asset->url,
+  alt
+}`;
+const swayQuery = `*[_type == "media" && slug.current == "sway"][0] {
+  title,
+  "imageUrl": image.asset->url,
+  alt
+}`;
+const watersparyQuery = `*[_type == "media" && slug.current == "waterspary"][0] {
+  title,
+  "imageUrl": image.asset->url,
+  alt
+}`;
 
 const media = await client.fetch(query, { slug });
 const abbott = await client.fetch(abbottQuery, { slug });
@@ -94,6 +114,10 @@ const energizer = await client.fetch(energizerQuery, { slug });
 const grha = await client.fetch(grhaQuery, { slug });
 const consul = await client.fetch(consulQuery, { slug });
 const design = await client.fetch(designQuery, { slug });
+const mep = await client.fetch(mepQuery, { slug });
+const fireAlarm = await client.fetch(firealarmQuery, { slug });
+const sway = await client.fetch(swayQuery, { slug });
+const waterspary = await client.fetch(watersparyQuery, { slug });
 
 
 // Jika slug tidak ditemukan
@@ -168,6 +192,7 @@ const stats = [
 Kami memastikan setiap komponen diproduksi <br/> dengan toleransi mikron demi performa optimal.
 </div>
 </div>
+
 <div class="grid grid-cols-1 md:grid-cols-3 gap-1">
 <!-- Service Card 1 -->
 <div class="group relative bg-surface-container-lowest p-10 hover:bg-primary transition-all duration-500 overflow-hidden rounded-sm
@@ -343,38 +368,50 @@ hover:cursor-pointer flex flex-col justify-between h-full">
  <section class="py-32 bg-surface-container-low">
 <div class="max-w-7xl mx-auto px-8">
 <div class="text-center mb-20">
-<span class="text-primary font-bold uppercase tracking-widest text-xs mb-4 block">Portofolio Proyek</span>
-<h2 class="text-5xl font-extrabold tracking-tighter">Proyek Kami</h2>
+<span class="text-primary font-bold font-brand uppercase tracking-widest text-xs mb-4 block">Portofolio Proyek</span>
+<h2 class="text-5xl font-extrabold font-heading tracking-tighter">Proyek Kami</h2>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-auto md:h-[800px]">
-<div class="md:col-span-2 md:row-span-2 relative group overflow-hidden bg-surface-container rounded-sm">
-<img alt="Mining Project" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="large scale heavy equipment assembly in an open-pit mining site with golden hour lighting and dust particles" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVmoKau9lqccAaoAXUVPImkzd2ULkgR66LV44Sn4MfPXYbxqLQUCdN6DYJrZOxizTeHsepjGN_ADI8N-rNRXWe-lzWSDj9CpkwXEkUWW8sIMJJ4EUYVBqQ5GLvSCmUmBvBcyiqrTvuNzfhdrPq_uBR89eI_nyIsRM61J7i5Xi01uWnT-RqhTI4JjqMZ8N-CBQJAdn6fMuVqTu3VliIFCjrus3Sitt4vVrz8qRm7Ah8GdttvZ6XNN49dsTVTyELITcAYhvBvq5An9Y"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-10 flex flex-col justify-end">
-<span class="text-primary-container font-bold text-xs uppercase tracking-widest mb-2">Mining &amp; Minerals</span>
-<h3 class="text-white text-2xl font-bold">Refurbishment Heavy Equipment - PT. Mining Gold</h3>
+
+<div class="md:col-span-2 md:row-span-2 relative group overflow-hidden bg-surface-container rounded-lg">
+<img alt="MEP" class="w-full h-full object-fit object-center
+group-hover:scale-105 transition-transform duration-700" src={mep?.imageUrl}/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/100 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-10 flex flex-col justify-end">
+<span class="text-primary-container font-bold text-xs uppercase tracking-widest mb-2">MEP</span>
+<h3 class="text-white text-2xl font-bold">Mechanical, Electrical Plumbing <br> PT. Diamond Cold Storage</h3>
 </div>
 </div>
+
 <div class="md:col-span-2 md:row-span-1 relative group overflow-hidden bg-surface-container rounded-sm">
-<img alt="Energy Project" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="night shot of a brightly lit petrochemical plant with steam rising and complex piping systems" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_dLXkVogEEj_Asb6-WWy-gM9mdVyqiZCfZQDoDynH-_ugI1oJvjQ8gbRxR4cqomAzB7c8MVWCBIc8eZ5Z42kutWPUUbRvjEnz0P8tlkH2l6lE2Q1cMAgiOVpdGlW5Fs3e3KwV7OA0wh_2K-t4tbyoY--tQijafIQImxyOaX3K6dhmVRsImxr4Z9a7cVedoEbcmqgsrzeDdBHUOfkPzPqqMF-mSaIbyEp0Nokk71dZQXiqYUwK9Ve-V4XLwU66RPwEVJhN0Cn54-4"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-10 flex flex-col justify-end">
-<span class="text-primary-container font-bold text-xs uppercase tracking-widest mb-2">Energy &amp; Power</span>
-<h3 class="text-white text-xl font-bold">Pipeline Integration - Refinery Unit IV</h3>
+<img alt="Fire Alarm Project" class="w-full h-full object-fit
+group-hover:scale-105 transition-transform duration-700"
+src={fireAlarm?.imageUrl}/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/100 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-10 flex flex-col justify-end">
+<span class="text-primary-container font-bold text-xs uppercase tracking-widest mb-2">Fire Alarm</span>
+<h3 class="text-white text-xl font-bold">Fire Alarm <br> PT. Sukanda Djaya</h3>
 </div>
 </div>
+
 <div class="md:col-span-1 md:row-span-1 relative group overflow-hidden bg-surface-container rounded-sm">
-<img alt="Tech Project" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="robotic arm in a high-tech manufacturing facility performing precise movements on a circuit board" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByEW3rmDLgdusCag-ctHA1U2vy8oiC6-H_NCQgCpiAECm8rg3ju2izG_XFA1m_pRnZM0Y8wOD6OrfzN5S3m-P5SDDmnkkAefXIFfny9raikYxqU5MIiKdd5Zhfju1JrSb-rPmRtSxum_peAQOfC6m3MbnYzbnRhG1vUQKln9dpqqhTegrprZ32u87Ud1HDcNMKTlVUK4Bf_eJxzXr7e_WN_KbTYt-j4dxvnX5IAYa0f8dWQ1JMWxt12pK0hg1Sg65HwxTsHhx9Y8g"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
-<span class="text-primary-container font-bold text-[10px] uppercase tracking-widest mb-1">Automation</span>
-<h3 class="text-white text-lg font-bold leading-tight">Smart Factory Setup</h3>
+<img alt="Tech Project" class="w-full h-full object-fit group-hover:scale-105 transition-transform duration-700"
+src={sway?.imageUrl}/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/100 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+<span class="text-primary-container font-bold text-[10px] uppercase tracking-widest mb-1">Sway Bracing</span>
+<h3 class="text-white text-lg font-bold leading-tight">Sway Bracing for Pipe Springkler <br> PT. Abbott Indonesia</h3>
 </div>
+
 </div>
+
 <div class="md:col-span-1 md:row-span-1 relative group overflow-hidden bg-surface-container rounded-sm">
-<img alt="Logistics Project" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="aerial view of a large industrial port with shipping containers and cranes at dusk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8qIIchdNjLJLiKocB3I7iDri8FCvuwsL-vuu2f3zE6-iMzGQZNgwtnZwUMTt96Alj0-4IQQfFr_4DEJNoun12eyg95uFLCOIgR3YQj-UQFbkbBew-WTjoga8ynRDUkA-AR3oayCMXljYH0VbFTSYXn4npq1ptReqGrg3EbzRnA49WXV_ue0ETbtmK7g9-x4U4nhXY4AT1sdf7gRz7_zm4mMvwHPjzEPSg_DORKib2GC3BQC2__pS926IDQPsUdvruFBnISvjf5PU"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
-<span class="text-primary-container font-bold text-[10px] uppercase tracking-widest mb-1">Logistics</span>
-<h3 class="text-white text-lg font-bold leading-tight">Port Terminal Expansion</h3>
+<img alt="Logistics Project" class="w-full h-full object-fit group-hover:scale-105 transition-transform duration-700" 
+src={waterspary?.imageUrl}/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/100 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+<span class="text-primary-container font-bold text-[10px] uppercase tracking-widest mb-1">Water Spary & IGS300</span>
+<h3 class="text-white text-lg font-bold leading-tight">Water Spray & IGS300 <br/> PT. Krakatau Chandra Energi</h3>
 </div>
+
 </div>
+
 </div>
 </div>
 </section>

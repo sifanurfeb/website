@@ -14,9 +14,15 @@ const mail = `*[_type == "media" && slug.current == "mail"][0] {
   "imageUrl": image.asset->url,
   alt
 }`;
+const logoetos = `*[_type == "media" && slug.current == "logo"][0] {
+  title,
+  "imageUrl": image.asset->url,
+  alt
+}`;
 
 const phoneIcon = await client.fetch(phone, { slug });
 const mailIcon = await client.fetch(mail, { slug });
+const logoIcon = await client.fetch(logoetos, { slug });
 
 // // Jika slug tidak ditemukan
 if (!phoneIcon || !mailIcon) {
@@ -105,8 +111,8 @@ if (!phoneIcon || !mailIcon) {
 <nav class="w-full bg-transparent sticky top-0 z-50 flex p-2 shadow-2xs" id="navbar">
 
     <div class="flex items-center justify-between p-4 w-full">
-    <div class="flex-shrink-0 px-6 ">
-        <img src="/images/logo-etos.webp" alt="" class="h-8 md:h-12 w-auto">
+    <div class="flex-shrink-0 px-6">
+        <img src={logoIcon?.imageUrl} alt="PT Etos Jaya Utama" class="h-8 md:h-12 w-auto">
     </div>
     <ul class="hidden md:flex gap-8 capitalize text-gray-200 font-medium">
         {['home', 'service', 'project','article', 'contact'].map((item) => (
