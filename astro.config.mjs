@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
 import sanity from '@sanity/astro';
 
-import vercel from '@astrojs/vercel';
+import vercel from '@astrojs/netlify';
 
 export default defineConfig({
   vite: {
@@ -24,5 +24,5 @@ export default defineConfig({
   },
 
  output: 'static',
-  adapter: vercel(),
+  adapter: netlify(),
 });
