@@ -1,3 +1,3 @@
-import article from './article.ts';
+import article from '../etosjayautama/schemaTypes/article';
 
 export const schemaTypes = [article];
