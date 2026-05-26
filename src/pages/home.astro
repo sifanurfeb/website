@@ -98,6 +98,11 @@ const watersparyQuery = `*[_type == "media" && slug.current == "waterspary"][0] 
   "imageUrl": image.asset->url,
   alt
 }`;
+const ggpQuery = `*[_type == "media" && slug.current == "procurument"][0] {
+  title,
+  "imageUrl": image.asset->url,
+  alt
+}`;
 
 const media = await client.fetch(query, { slug });
 const abbott = await client.fetch(abbottQuery, { slug });
@@ -118,6 +123,7 @@ const mep = await client.fetch(mepQuery, { slug });
 const fireAlarm = await client.fetch(firealarmQuery, { slug });
 const sway = await client.fetch(swayQuery, { slug });
 const waterspary = await client.fetch(watersparyQuery, { slug });
+const ggp = await client.fetch(ggpQuery, {slug});
 
 
 // Jika slug tidak ditemukan
@@ -229,7 +235,7 @@ hover:cursor-pointer flex flex-col justify-between h-full">
                          Komponen gardu listrik, kabel industrial berlapis pelindung, katup kendali otomatis, serta pompa transfer cairan heavy-duty siap menjaga keandalan operasional di area kerja dengan tingkat korosi dan suhu ekstrem.
                         </p>
 <div class="w-full aspect-video bg-surface-container aspect-video rounded-sm overflow-hidden opacity-50 group-hover:opacity-20 transition-opacity">
-<img alt="Supply Chain" class="w-full h-full object-cover object-center" data-alt="organized modern warehouse with high shelving and automated logistics systems in clean industrial lighting" src=/>
+<img alt="Supply Chain" class="w-full h-full object-cover object-center" src={ggp?.imageUrl}/>
 </div>
 </div>
 </div>
@@ -419,11 +425,11 @@ src={waterspary?.imageUrl}/>
 <!-- client -->
  <section class="py-16 bg-surface overflow-hidden border-y border-outline-variant/10">
 <div class="max-w-7xl mx-auto px-8 mb-8 text-center">
-<span class="text-[10px] font-label uppercase tracking-[0.2em] text-secondary">Dipercaya oleh Pemimpin Industri</span>
+<span class="text-[10px] font-label uppercase tracking-[0.2em] text-secondary font-brand">Dipercaya oleh Pemimpin Industri</span>
 </div>
 <div class="overflow-hidden">
   <div class="flex gap-10 animate-infinite-scroll whitespace-nowrap items-center opacity-40 grayscale hover:grayscale-0 cursor-pointer transition-all">
-<div class="flex items-center gap-10">
+<div class="flex items-center gap-5">
 <div class="w-40 h-12 flex items-center justify-center">
 </div>
 <div class="w-32 h-20 rounded-2xl p-3 bg-secondary/0.5 rounded flex items-center justify-center font-black text-secondary italic">
@@ -472,9 +478,10 @@ src={waterspary?.imageUrl}/>
   )}
 </div>
 </div>
+
 <!-- Duplicate for seamless scroll -->
-<div aria-hidden="true" class="flex items-center gap-20">
-<div class="w-32 h-12 bg-secondary/0.5 rounded flex items-center justify-center font-black text-secondary italic">
+<div aria-hidden="true" class="flex items-center gap-5">
+<div class="w-32 h-12 bg-secondary/0.5 rounded-2xl rounded flex items-center justify-center font-black text-secondary italic">
 {bdx.imageUrl && (
     <img 
       src={bdx.imageUrl} 
@@ -483,7 +490,7 @@ src={waterspary?.imageUrl}/>
     />
   )}
 </div>
-<div class="w-32 h-12 bg-secondary/0.5 rounded flex items-center justify-center font-black text-secondary italic">
+<div class="w-32 h-12 bg-secondary/0.5 rounded-2xl rounded flex items-center justify-center font-black text-secondary italic">
 {bkp.imageUrl && (
     <img 
       src={bkp.imageUrl} 
@@ -492,7 +499,7 @@ src={waterspary?.imageUrl}/>
     />
   )}
 </div>
-<div class="w-32 h-12 bg-secondary/0.5 rounded flex items-center justify-center font-black text-secondary italic">
+<div class="w-32 h-12 bg-secondary/0.5 rounded-2xl rounded flex items-center justify-center font-black text-secondary italic">
   {bread.imageUrl && (
       <img 
         src={bread.imageUrl} 
@@ -501,7 +508,7 @@ src={waterspary?.imageUrl}/>
       />
     )}
 </div>
-<div class="w-32 h-12 bg-secondary/0.5 rounded flex items-center justify-center font-black text-secondary italic">
+<div class="w-32 h-12 bg-secondary/0.5 rounded-2xl rounded flex items-center justify-center font-black text-secondary italic">
 {cira.imageUrl && (
     <img 
       src={cira.imageUrl} 
@@ -510,7 +517,7 @@ src={waterspary?.imageUrl}/>
     />
   )}
 </div>
-<div class="w-32 h-12 bg-secondary/0.5 rounded flex items-center justify-center font-black text-secondary italic">
+<div class="w-32 h-12 bg-secondary/0.5 rounded-2xl rounded flex items-center justify-center font-black text-secondary italic">
 {dcs.imageUrl && (
     <img 
       src={dcs.imageUrl} 
@@ -519,7 +526,7 @@ src={waterspary?.imageUrl}/>
     />
   )}
 </div>
-<div class="w-32 h-12 bg-secondary/0.5 rounded flex items-center justify-center font-black text-secondary italic">
+<div class="w-32 h-12 bg-secondary/0.5 rounded-2xl rounded flex items-center justify-center font-black text-secondary italic">
 {energizer.imageUrl && (
     <img 
       src={energizer.imageUrl} 
@@ -528,7 +535,7 @@ src={waterspary?.imageUrl}/>
     />
   )}
 </div>
-<div class="w-32 h-12 bg-secondary/0.5 rounded flex items-center justify-center font-black text-secondary italic">
+<div class="w-32 h-12 bg-secondary/0.5 rounded-2xl rounded flex items-center justify-center font-black text-secondary italic">
 {grha.imageUrl && (
     <img 
       src={grha.imageUrl} 
