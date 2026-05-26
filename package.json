@@ -12,7 +12,6 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/netlify": "^7.0.10",
     "@astrojs/react": "^5.0.3",
     "@sanity/astro": "^3.3.1",
     "@sanity/client": "^7.21.0",
@@ -29,5 +28,8 @@
     "styled-components": "^6.4.0",
     "tailwindcss": "^4.2.4",
     "vite": "^7.3.2"
+  },
+  "devDependencies": {
+    "@astrojs/netlify": "^7.0.10"
   }
 }

@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
 import sanity from '@sanity/astro';
 
-import vercel from '@astrojs/netlify';
+import netlify from '@astrojs/netlify';
 
 export default defineConfig({
   vite: {
