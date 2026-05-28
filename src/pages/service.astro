@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Image from 'astro/components/Image.astro';
 ---
 <Layout title="Service">
 <main class="pt-24">
@@ -18,7 +19,7 @@ import Layout from "../layouts/Layout.astro";
             </div>
             <div class="lg:col-span-5 relative">
             <div class="aspect-[4/5] bg-surface-container overflow-hidden rounded-xl">
-            <img alt="Industrial Engineering" class="w-full h-full object-cover grayscale contrast-125" data-alt="close-up of complex industrial piping and steel structures with dramatic lighting and high technical detail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXJV_fmmhcGvB5jUCVpDy6W67mhmGiKpNZZNhHSw5dCd7oJAfq1QAPs5p6C6H_jnwbmrA_KeYSows8FYD5osh61h8YDjWFgzLIsM-FEmL4XeT6Yha3ailExZM6_gIKfAvgzy5WBo3x8-QZFWnoDe6Y5B2mxJ9bj-jPAb4NhRtcjgm0WkiF-yY81h25r5dnf9flz9sBQ5am08EX_-xHvfM9UDcSNTQR_k4lfDT45lraXQ3VVdzJYrIm5v9AmJRN-n1WkFbHAENUoIU"/>
+            <Image alt="Industrial Engineering" class="w-full h-full object-cover grayscale contrast-125" src=""/>
             </div>
             <div class="absolute -bottom-6 -left-6 bg-primary p-8 text-on-primary shadow-ambient hidden md:block">
             <div class="text-4xl font-black mb-1">25+</div>
@@ -56,7 +57,7 @@ import Layout from "../layouts/Layout.astro";
 </div>
 </div>
 <div class="mt-12">
-<img alt="Fire Systems" class="w-full h-48 object-cover rounded-md grayscale" data-alt="industrial red fire hydrant pipes and valves against a clean concrete wall in a high-end facility" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwE-Zo3bthYmsGqv2ni1DwrvDPewRoRBZf-xqPdr5blkOovEkKPsVBBshKG2zWDfaGmjIEDVCV3UySf7YX5nRXLzxsBgEWJiFSpRTFuWuSRehFgXu7PGyeeZRF4DgWYo5cUaOnvL03qMGMKWbn07PFO2gAO-_V0dyca7gPYGLTrIwlWOER2PunEGmvBgIBmioAkeTVyzGAtEHXF4NZzNIcrr-w_vp6NahVmkH-zWgdAWY5gMhxLeqfobqMJWFqoj8LB8hovUQRbB0"/>
+<Image alt="Fire Systems" class="w-full h-48 object-cover rounded-md grayscale" src=""/>
 </div>
 </div>
 <!-- MEP Engineering -->
@@ -98,6 +99,7 @@ import Layout from "../layouts/Layout.astro";
 <span class="material-symbols-outlined text-4xl text-secondary/40" data-icon="settings_suggest">settings_suggest</span>
 </div>
 </div>
+
 <!-- HSE Consulting -->
 <div class="md:col-span-3 bg-tertiary text-on-tertiary p-10 shadow-ambient flex flex-col justify-center relative overflow-hidden ghost-border">
 <div class="relative z-10">
@@ -107,6 +109,7 @@ import Layout from "../layouts/Layout.astro";
 <h3 class="text-2xl font-black tracking-tight mb-4">HSE Consulting</h3>
 <p class="text-white/70 text-sm leading-relaxed">Strategic health, safety, and environment consulting to mitigate industrial risks and foster a culture of safety excellence.</p>
 </div>
+
 <div class="absolute -right-12 -bottom-12 opacity-10">
 <span class="material-symbols-outlined text-[200px]" data-icon="safety_divider">safety_divider</span>
 </div>
