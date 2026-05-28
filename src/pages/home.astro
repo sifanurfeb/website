@@ -1,5 +1,4 @@
 ---
-import Image from 'astro/components/Image.astro';
 import { client, urlFor } from '../lib/sanity';
 
 const { slug } = Astro.params;
@@ -145,10 +144,11 @@ const stats = [
 <section class="relative min-h-[921px] flex items-center pb-12 overflow-hidden -mt-25">
     <div class="absolute inset-0 z-0">
      {media.imageUrl && (
-    <Image 
+    <img 
       src={media.imageUrl} 
       alt={media.alt || media.title} 
       class="w-full h-full object-cover object-center"
+      loading="lazy"
     />
   )}
         <div class="w-full h-96 object-cover rounded-lg"></div>
@@ -210,7 +210,9 @@ hover:cursor-pointer flex flex-col justify-between h-full">
 Kalkulasi efisiensi energi, mitigasi risiko operasional, dan kepatuhan standar teknis internasional menyatu dalam blueprint rekayasa jaringan kelistrikan, sistem mekanis, serta jalur distribusi air dan fluida.
 </p>
 <div class="w-full aspect-video bg-surface-container rounded-sm overflow-hidden opacity-50 group-hover:opacity-20 transition-opacity">
-<Image alt="Tim engineer PT Etos Jaya Utama sedang melakukan konsultasi desain proyek industri" class="w-full h-full object-cover" src={consul?.imageUrl}/>
+<img alt="Tim engineer PT Etos Jaya Utama sedang melakukan konsultasi desain proyek industri" class="w-full h-full object-cover" 
+loading="lazy"
+src={consul?.imageUrl}/>
 </div>
 </div>
 <!-- Service Card 2 -->
@@ -223,7 +225,7 @@ hover:cursor-pointer flex flex-col justify-between h-full">
                            Jaringan distribusi listrik panel utama, sirkulasi tata udara massal, deteksi dini penanggulangan api, hingga jalur pipa bertekanan tinggi beroperasi secara presisi untuk stabilitas jangka panjang.
                         </p>
 <div class="w-full aspect-video bg-surface-container rounded-sm overflow-hidden opacity-50 group-hover:opacity-30 transition-opacity">
-<Image alt="Fabrication" class="h-48 w-full object-cover" data-alt="industrial welder working on a large steel frame with bright blue sparks and professional safety gear" src={design?.imageUrl}/>
+<img alt="Fabrication" class="h-48 w-full object-cover" data-alt="industrial welder working on a large steel frame with bright blue sparks and professional safety gear" src={design?.imageUrl} loading="lazy"/>
 </div>
 </div>
 <!-- Service Card 3 -->
@@ -236,7 +238,7 @@ hover:cursor-pointer flex flex-col justify-between h-full">
                          Komponen gardu listrik, kabel industrial berlapis pelindung, katup kendali otomatis, serta pompa transfer cairan heavy-duty siap menjaga keandalan operasional di area kerja dengan tingkat korosi dan suhu ekstrem.
                         </p>
 <div class="w-full aspect-video bg-surface-container aspect-video rounded-sm overflow-hidden opacity-50 group-hover:opacity-20 transition-opacity">
-<Image alt="Supply Chain" class="w-full h-full object-cover object-center" src={ggp?.imageUrl}/>
+<img  alt="Supply Chain" class="w-full h-full object-cover object-center" src={ggp?.imageUrl} loading="lazy"/>
 </div>
 </div>
 </div>
@@ -329,8 +331,10 @@ hover:cursor-pointer flex flex-col justify-between h-full">
 <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-auto md:h-[800px]">
 
 <div class="md:col-span-2 md:row-span-2 relative group overflow-hidden bg-surface-container rounded-lg">
-<Image alt="MEP" class="w-full h-full object-fit object-center
-group-hover:scale-105 transition-transform duration-700" src={mep?.imageUrl}/>
+<img alt="MEP" class="w-full h-full object-fit object-center
+group-hover:scale-105 transition-transform duration-700" 
+loading="lazy"
+src={mep?.imageUrl}/>
 <div class="absolute inset-0 bg-gradient-to-t from-black/100 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-10 flex flex-col justify-end">
 <span class="text-primary-container font-bold text-xs uppercase tracking-widest mb-2">MEP</span>
 <h3 class="text-white text-2xl font-bold">Mechanical, Electrical Plumbing <br> PT. Diamond Cold Storage</h3>
@@ -338,8 +342,9 @@ group-hover:scale-105 transition-transform duration-700" src={mep?.imageUrl}/>
 </div>
 
 <div class="md:col-span-2 md:row-span-1 relative group overflow-hidden bg-surface-container rounded-sm">
-<Image alt="Fire Alarm Project" class="w-full h-full object-fit
+<img alt="Fire Alarm Project" class="w-full h-full object-fit
 group-hover:scale-105 transition-transform duration-700"
+loading="lazy"
 src={fireAlarm?.imageUrl}/>
 <div class="absolute inset-0 bg-gradient-to-t from-black/100 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-10 flex flex-col justify-end">
 <span class="text-primary-container font-bold text-xs uppercase tracking-widest mb-2">Fire Alarm</span>
@@ -348,7 +353,8 @@ src={fireAlarm?.imageUrl}/>
 </div>
 
 <div class="md:col-span-1 md:row-span-1 relative group overflow-hidden bg-surface-container rounded-sm">
-<Image alt="Tech Project" class="w-full h-full object-fit group-hover:scale-105 transition-transform duration-700"
+<img alt="Tech Project" class="w-full h-full object-fit group-hover:scale-105 transition-transform duration-700"
+loading="lazy"
 src={sway?.imageUrl}/>
 <div class="absolute inset-0 bg-gradient-to-t from-black/100 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
 <span class="text-primary-container font-bold text-[10px] uppercase tracking-widest mb-1">Sway Bracing</span>
@@ -358,7 +364,8 @@ src={sway?.imageUrl}/>
 </div>
 
 <div class="md:col-span-1 md:row-span-1 relative group overflow-hidden bg-surface-container rounded-sm">
-<Image alt="Logistics Project" class="w-full h-full object-fit group-hover:scale-105 transition-transform duration-700" 
+<img alt="Logistics Project" class="w-full h-full object-fit group-hover:scale-105 transition-transform duration-700" 
+loading="lazy"
 src={waterspary?.imageUrl}/>
 <div class="absolute inset-0 bg-gradient-to-t from-black/100 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
 <span class="text-primary-container font-bold text-[10px] uppercase tracking-widest mb-1">Water Spary & IGS300</span>
@@ -383,46 +390,51 @@ src={waterspary?.imageUrl}/>
 </div>
 <div class="w-32 h-20 rounded-2xl p-3 bg-secondary/0.5 rounded flex items-center justify-center font-black text-secondary italic">
    {abbott.imageUrl && (
-    <Image
+    <img
       src={abbott.imageUrl}
       alt={abbott.alt || abbott.title}
-      class="w-full h-full object-contain mix-blend-multiply" 
+      class="w-full h-full object-contain mix-blend-multiply"
+      loading="lazy"
     />
   )}
 </div>
 <div class="w-32 h-20 rounded-2xl bg-secondary/0.5 rounded flex items-center justify-center font-black text-secondary italic">
  {wahana.imageUrl && (
-    <Image
+    <img
       src={wahana.imageUrl}
       alt={wahana.alt || wahana.title}
-      class="w-full h-full object-contain mix-blend-multiply" 
+      class="w-full h-full object-contain mix-blend-multiply"
+      loading="lazy"
     />
   )}
 </div>
 <div class="w-32 h-20 rounded-2xl bg-secondary/0.5 rounded flex items-center justify-center font-black text-secondary italic">
  {amman.imageUrl && (
-    <Image
+    <img
       src={amman.imageUrl}
       alt={amman.alt || amman.title}
-      class="w-full h-full object-contain mix-blend-multiply" 
+      class="w-full h-full object-contain mix-blend-multiply"
+      loading="lazy" 
     />
   )}
 </div>
 <div class="w-32 h-20 rounded-2xl bg-secondary/0.5 rounded flex items-center justify-center font-black text-secondary italic">
  {bas.imageUrl && (
-    <Image
+    <img
       src={bas.imageUrl}
       alt={bas.alt || bas.title}
-      class="w-full h-full object-contain mix-blend-multiply" 
+      class="w-full h-full object-contain mix-blend-multiply"
+      loading="lazy"
     />
   )}
 </div>
 <div class="w-32 h-20 rounded-2xl bg-secondary/0.5 rounded flex items-center justify-center font-black text-secondary italic">
  {bali.imageUrl && (
-    <Image
+    <img
       src={bali.imageUrl}
       alt={bali.alt || bali.title}
-      class="w-full h-full object-contain mix-blend-multiply" 
+      class="w-full h-full object-contain mix-blend-multiply"
+      loading="lazy" 
     />
   )}
 </div>
@@ -432,64 +444,71 @@ src={waterspary?.imageUrl}/>
 <div aria-hidden="true" class="flex items-center gap-5">
 <div class="w-32 h-12 bg-secondary/0.5 rounded-2xl rounded flex items-center justify-center font-black text-secondary italic">
 {bdx.imageUrl && (
-    <Image
+    <img
       src={bdx.imageUrl}
       alt={bdx.alt || bdx.title}
-      class="w-full h-full object-contain mix-blend-multiply" 
+      class="w-full h-full object-contain mix-blend-multiply"
+      loading="lazy" 
     />
   )}
 </div>
 <div class="w-32 h-12 bg-secondary/0.5 rounded-2xl rounded flex items-center justify-center font-black text-secondary italic">
 {bkp.imageUrl && (
-    <Image
+    <img
       src={bkp.imageUrl}
       alt={bkp.alt || bkp.title}
-      class="w-full h-full object-contain mix-blend-multiply" 
+      class="w-full h-full object-contain mix-blend-multiply"
+      loading="lazy" 
     />
   )}
 </div>
 <div class="w-32 h-12 bg-secondary/0.5 rounded-2xl rounded flex items-center justify-center font-black text-secondary italic">
   {bread.imageUrl && (
-      <Image
+      <img
         src={bread.imageUrl}
         alt={bread.alt || bread.title}
-        class="w-full h-full object-contain mix-blend-multiply" 
+        class="w-full h-full object-contain mix-blend-multiply"
+        loading="lazy" 
       />
     )}
 </div>
 <div class="w-32 h-12 bg-secondary/0.5 rounded-2xl rounded flex items-center justify-center font-black text-secondary italic">
 {cira.imageUrl && (
-    <Image
+    <img
       src={cira.imageUrl}
       alt={cira.alt || cira.title}
-      class="w-full h-full object-contain mix-blend-multiply" 
+      class="w-full h-full object-contain mix-blend-multiply"
+      loading="lazy" 
     />
   )}
 </div>
 <div class="w-32 h-12 bg-secondary/0.5 rounded-2xl rounded flex items-center justify-center font-black text-secondary italic">
 {dcs.imageUrl && (
-    <Image
+    <img
       src={dcs.imageUrl}
       alt={dcs.alt || dcs.title}
-      class="w-full h-full object-contain mix-blend-multiply" 
+      class="w-full h-full object-contain mix-blend-multiply"
+      loading="lazy" 
     />
   )}
 </div>
 <div class="w-32 h-12 bg-secondary/0.5 rounded-2xl rounded flex items-center justify-center font-black text-secondary italic">
 {energizer.imageUrl && (
-    <Image
+    <img
       src={energizer.imageUrl}
       alt={energizer.alt || energizer.title}
-      class="w-full h-full object-contain mix-blend-multiply" 
+      class="w-full h-full object-contain mix-blend-multiply"
+      loading="lazy" 
     />
   )}
 </div>
 <div class="w-32 h-12 bg-secondary/0.5 rounded-2xl rounded flex items-center justify-center font-black text-secondary italic">
 {grha.imageUrl && (
-    <Image
+    <img
       src={grha.imageUrl}
       alt={grha.alt || grha.title}
-      class="w-full h-full object-contain mix-blend-multiply" 
+      class="w-full h-full object-contain mix-blend-multiply"
+      loading="lazy" 
     />
   )}
 </div>
