@@ -1,4 +1,5 @@
 ---
+import Image from 'astro/components/Image.astro';
 import { client, urlFor } from '../lib/sanity';
 
 const { slug } = Astro.params;
@@ -242,58 +243,6 @@ hover:cursor-pointer flex flex-col justify-between h-full">
 </div>
 </section>
 
-<!-- visi dan misi -->
- <!-- <section class="py-32 bg-surface">
-<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-<div class="relative">
-<div class="aspect-[4/5] bg-surface-container overflow-hidden rounded-lg shadow-xl">
-<img alt="Professionalism" class="w-full h-full object-cover grayscale" data-alt="a professional engineer in a white hard hat reviewing technical blueprints on a digital tablet in a clean factory environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaPRh5p5rsrFifd8icaCvlcEt58qcDGqYCJYN1SFL_ASn30tosWzhskGnfvDixGlAgXeL1XDs2UWG8KOibLm8sLydsBspANFHcV5amxOGYKMaZjakwMgIeWpPgWxF1TBYY5VjpUXWAIC8wS5BSTu-NT2HjCyQITQ63P24qt5Oh3OHentuFdiagL-xV1SNWVM1DkHiohPh3NF7Alqp1kFJblSQFWVYxTBbNPVI3YIeR_hW0LSg1hdFo20ymgzYi_6R3vVltP3eDH60"/>
-</div>
-<div class="absolute -bottom-10 -right-10 w-2/3 aspect-square bg-primary p-1 flex items-center justify-center">
-<div class="w-full h-full border border-on-primary/20 flex flex-col items-center justify-center text-on-primary p-8">
-<span class="text-6xl font-black mb-2 italic">Quality</span>
-<span class="text-xs tracking-[0.4em] uppercase font-bold">Without Compromise</span>
-</div>
-</div>
-</div>
-<div class="flex flex-col gap-12">
-<div>
-<span class="text-primary font-bold uppercase tracking-widest text-xs mb-4 block">Nilai Inti Kami</span>
-<h2 class="text-4xl font-extrabold tracking-tighter mb-6 italic">Visi Kami</h2>
-<p class="text-on-surface-variant text-xl leading-relaxed">
-                            Menjadi pemimpin regional dalam penyediaan solusi engineering yang inovatif, presisi, dan berkelanjutan bagi industri global.
-                        </p>
-</div>
-<div class="space-y-8">
-<h2 class="text-2xl font-extrabold tracking-tighter mb-4 border-b border-primary w-fit pr-8 pb-1">Misi Kami</h2>
-<div class="grid grid-cols-1 gap-6">
-<div class="flex gap-6 items-start">
-<span class="text-primary font-black text-2xl">01</span>
-<div>
-<h4 class="font-bold text-lg mb-1">Inovasi Berkelanjutan</h4>
-<p class="text-secondary text-sm">Terus mengadopsi teknologi manufaktur terbaru untuk efisiensi maksimal.</p>
-</div>
-</div>
-<div class="flex gap-6 items-start">
-<span class="text-primary font-black text-2xl">02</span>
-<div>
-<h4 class="font-bold text-lg mb-1">Kualitas Standar Dunia</h4>
-<p class="text-secondary text-sm">Menjamin setiap output memenuhi standar ISO dan kepuasan klien.</p>
-</div>
-</div>
-<div class="flex gap-6 items-start">
-<span class="text-primary font-black text-2xl">03</span>
-<div>
-<h4 class="font-bold text-lg mb-1">Keamanan &amp; HSE</h4>
-<p class="text-secondary text-sm">Memprioritaskan keselamatan kerja dan kelestarian lingkungan dalam setiap proyek.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section> -->
-
 <!-- keunggulan -->
 <section class="py-32 bg-secondary-container-low reveal-up">
   <div class="max-w-7xl mx-auto px-6 md:px-12">
@@ -389,7 +338,7 @@ group-hover:scale-105 transition-transform duration-700" src={mep?.imageUrl}/>
 </div>
 
 <div class="md:col-span-2 md:row-span-1 relative group overflow-hidden bg-surface-container rounded-sm">
-<img alt="Fire Alarm Project" class="w-full h-full object-fit
+<Image alt="Fire Alarm Project" class="w-full h-full object-fit
 group-hover:scale-105 transition-transform duration-700"
 src={fireAlarm?.imageUrl}/>
 <div class="absolute inset-0 bg-gradient-to-t from-black/100 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-10 flex flex-col justify-end">
@@ -399,7 +348,7 @@ src={fireAlarm?.imageUrl}/>
 </div>
 
 <div class="md:col-span-1 md:row-span-1 relative group overflow-hidden bg-surface-container rounded-sm">
-<img alt="Tech Project" class="w-full h-full object-fit group-hover:scale-105 transition-transform duration-700"
+<Image alt="Tech Project" class="w-full h-full object-fit group-hover:scale-105 transition-transform duration-700"
 src={sway?.imageUrl}/>
 <div class="absolute inset-0 bg-gradient-to-t from-black/100 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
 <span class="text-primary-container font-bold text-[10px] uppercase tracking-widest mb-1">Sway Bracing</span>
@@ -409,7 +358,7 @@ src={sway?.imageUrl}/>
 </div>
 
 <div class="md:col-span-1 md:row-span-1 relative group overflow-hidden bg-surface-container rounded-sm">
-<img alt="Logistics Project" class="w-full h-full object-fit group-hover:scale-105 transition-transform duration-700" 
+<Image alt="Logistics Project" class="w-full h-full object-fit group-hover:scale-105 transition-transform duration-700" 
 src={waterspary?.imageUrl}/>
 <div class="absolute inset-0 bg-gradient-to-t from-black/100 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
 <span class="text-primary-container font-bold text-[10px] uppercase tracking-widest mb-1">Water Spary & IGS300</span>
@@ -434,8 +383,8 @@ src={waterspary?.imageUrl}/>
 </div>
 <div class="w-32 h-20 rounded-2xl p-3 bg-secondary/0.5 rounded flex items-center justify-center font-black text-secondary italic">
    {abbott.imageUrl && (
-    <img 
-      src={abbott.imageUrl} 
+    <Image
+      src={abbott.imageUrl}
       alt={abbott.alt || abbott.title}
       class="w-full h-full object-contain mix-blend-multiply" 
     />
@@ -443,8 +392,8 @@ src={waterspary?.imageUrl}/>
 </div>
 <div class="w-32 h-20 rounded-2xl bg-secondary/0.5 rounded flex items-center justify-center font-black text-secondary italic">
  {wahana.imageUrl && (
-    <img 
-      src={wahana.imageUrl} 
+    <Image
+      src={wahana.imageUrl}
       alt={wahana.alt || wahana.title}
       class="w-full h-full object-contain mix-blend-multiply" 
     />
@@ -452,8 +401,8 @@ src={waterspary?.imageUrl}/>
 </div>
 <div class="w-32 h-20 rounded-2xl bg-secondary/0.5 rounded flex items-center justify-center font-black text-secondary italic">
  {amman.imageUrl && (
-    <img 
-      src={amman.imageUrl} 
+    <Image
+      src={amman.imageUrl}
       alt={amman.alt || amman.title}
       class="w-full h-full object-contain mix-blend-multiply" 
     />
@@ -461,8 +410,8 @@ src={waterspary?.imageUrl}/>
 </div>
 <div class="w-32 h-20 rounded-2xl bg-secondary/0.5 rounded flex items-center justify-center font-black text-secondary italic">
  {bas.imageUrl && (
-    <img 
-      src={bas.imageUrl} 
+    <Image
+      src={bas.imageUrl}
       alt={bas.alt || bas.title}
       class="w-full h-full object-contain mix-blend-multiply" 
     />
@@ -470,8 +419,8 @@ src={waterspary?.imageUrl}/>
 </div>
 <div class="w-32 h-20 rounded-2xl bg-secondary/0.5 rounded flex items-center justify-center font-black text-secondary italic">
  {bali.imageUrl && (
-    <img 
-      src={bali.imageUrl} 
+    <Image
+      src={bali.imageUrl}
       alt={bali.alt || bali.title}
       class="w-full h-full object-contain mix-blend-multiply" 
     />
@@ -483,8 +432,8 @@ src={waterspary?.imageUrl}/>
 <div aria-hidden="true" class="flex items-center gap-5">
 <div class="w-32 h-12 bg-secondary/0.5 rounded-2xl rounded flex items-center justify-center font-black text-secondary italic">
 {bdx.imageUrl && (
-    <img 
-      src={bdx.imageUrl} 
+    <Image
+      src={bdx.imageUrl}
       alt={bdx.alt || bdx.title}
       class="w-full h-full object-contain mix-blend-multiply" 
     />
@@ -492,8 +441,8 @@ src={waterspary?.imageUrl}/>
 </div>
 <div class="w-32 h-12 bg-secondary/0.5 rounded-2xl rounded flex items-center justify-center font-black text-secondary italic">
 {bkp.imageUrl && (
-    <img 
-      src={bkp.imageUrl} 
+    <Image
+      src={bkp.imageUrl}
       alt={bkp.alt || bkp.title}
       class="w-full h-full object-contain mix-blend-multiply" 
     />
@@ -501,8 +450,8 @@ src={waterspary?.imageUrl}/>
 </div>
 <div class="w-32 h-12 bg-secondary/0.5 rounded-2xl rounded flex items-center justify-center font-black text-secondary italic">
   {bread.imageUrl && (
-      <img 
-        src={bread.imageUrl} 
+      <Image
+        src={bread.imageUrl}
         alt={bread.alt || bread.title}
         class="w-full h-full object-contain mix-blend-multiply" 
       />
@@ -510,8 +459,8 @@ src={waterspary?.imageUrl}/>
 </div>
 <div class="w-32 h-12 bg-secondary/0.5 rounded-2xl rounded flex items-center justify-center font-black text-secondary italic">
 {cira.imageUrl && (
-    <img 
-      src={cira.imageUrl} 
+    <Image
+      src={cira.imageUrl}
       alt={cira.alt || cira.title}
       class="w-full h-full object-contain mix-blend-multiply" 
     />
@@ -519,8 +468,8 @@ src={waterspary?.imageUrl}/>
 </div>
 <div class="w-32 h-12 bg-secondary/0.5 rounded-2xl rounded flex items-center justify-center font-black text-secondary italic">
 {dcs.imageUrl && (
-    <img 
-      src={dcs.imageUrl} 
+    <Image
+      src={dcs.imageUrl}
       alt={dcs.alt || dcs.title}
       class="w-full h-full object-contain mix-blend-multiply" 
     />
@@ -528,8 +477,8 @@ src={waterspary?.imageUrl}/>
 </div>
 <div class="w-32 h-12 bg-secondary/0.5 rounded-2xl rounded flex items-center justify-center font-black text-secondary italic">
 {energizer.imageUrl && (
-    <img 
-      src={energizer.imageUrl} 
+    <Image
+      src={energizer.imageUrl}
       alt={energizer.alt || energizer.title}
       class="w-full h-full object-contain mix-blend-multiply" 
     />
@@ -537,8 +486,8 @@ src={waterspary?.imageUrl}/>
 </div>
 <div class="w-32 h-12 bg-secondary/0.5 rounded-2xl rounded flex items-center justify-center font-black text-secondary italic">
 {grha.imageUrl && (
-    <img 
-      src={grha.imageUrl} 
+    <Image
+      src={grha.imageUrl}
       alt={grha.alt || grha.title}
       class="w-full h-full object-contain mix-blend-multiply" 
     />
